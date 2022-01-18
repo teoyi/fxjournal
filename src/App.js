@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { Routes, Route, Link } from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+    return (
+        <div className="app">
+            <div className="navBar">
+                {/* component containing header logo and nav  */}
+            </div>
+            <div className="main">
+                <Routes>
+                    {/* homepage, news, trading journal preview/if signed in then trading journal dashboard, economic calendar, details of currency pairs  */}
+                </Routes>
+            </div>
+            <div className="footer">
+                {/* contain footer component e.g. copy right mark, links to different general sections (news, list of currency pairs, trading journal) */}
+            </div>
+        </div>
+    )
 }
 
-export default App;
+export default App
