@@ -1,11 +1,13 @@
 import React from 'react'
 import { Routes, Route, Link } from 'react-router-dom';
+import Navbar from './components/Navbar';
 
 const App = () => {
     return (
         <div className="app">
             <div className="navBar">
-                {/* component containing header logo and nav  */}
+                <Navbar />
+                <h1 className="text-3xl font-bold underline">      Hello world!    </h1>
             </div>
             <div className="main">
                 <Routes>
