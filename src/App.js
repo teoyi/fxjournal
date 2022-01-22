@@ -2,8 +2,7 @@ import React from 'react'
 import { Routes, Route, Link } from 'react-router-dom';
 import Navbar from './components/Navbar';
 // import './App.css';
-import Hero from './components/Hero'
-
+import Homepage from './components/Homepage/Homepage';
 const App = () => {
     return (
         <div className="app m-0">
@@ -13,7 +12,7 @@ const App = () => {
             <div className="main">
                 <Routes>
                     {/* homepage, news, trading journal preview/if signed in then trading journal dashboard, economic calendar, details of currency pairs  */}
-                    <Route exact path="/" element={<Hero />} />
+                    <Route exact path="/" element={<Homepage />} />
                 </Routes>
             </div>
             <div className="footer">
