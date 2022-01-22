@@ -12,9 +12,12 @@ module.exports = {
         "goshbe" : [ "Goshbe" ]
       },
       fontSize: {
-        'hero-lg': '30rem',
+        'hero-lg': '25rem',
         'hero-md': '15rem',
         'hero-sm': '10rem'
+      },
+      height: {
+        'menu-slide': 'calc(100vh - 48px)',
       }
     },
   },
