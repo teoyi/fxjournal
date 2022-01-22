@@ -15,7 +15,7 @@ const About = () => {
             <div className="flex flex-col justify-center items-center text-amber-300 m-10 text-center">
                 <img src={Book} alt="book icon" className="w-2/6 " />
                 <h1 className="my-3 text-l font-semibold uppercase">Journalling</h1>
-                <p className="w-80">Journal and reflect on your strategy using our platform as a medium.</p>
+                <p className="w-80">Journal and reflect on your strategy using our platform as a medium</p>
             </div>
             <div className="flex flex-col justify-center items-center text-amber-300 m-10 text-center">
                 <img src={Camera} alt="book icon" className="w-2/6 "/>
