@@ -21,6 +21,12 @@ module.exports = {
       },
       lineHeight: {
         'hero-lh': '28rem',
+      },
+      spacing: {
+        '88': '88px',
+      },
+      margin: {
+        '17r': '17rem',
       }
     },
   },

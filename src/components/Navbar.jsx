@@ -5,8 +5,8 @@ import { Turn as Hamburger } from 'hamburger-react';
 const Navbar = () => {
     // menu state 
     const [isOpen, setOpen] = useState(false); 
-    const toOpen = "ease-in duration-300 left-nav-slide bg-black h-screen w-2/5 flex justify-center items-center z-0";
-    const toClose = "ease-out duration-300 left-nav-slide bg-black h-screen w-2/5 flex justify-center items-center -translate-x-full z-0"
+    const toOpen = "ease-in duration-300 absolute left-nav-slide bg-black h-screen w-2/5 flex justify-center items-center z-0 -mt-88";
+    const toClose = "ease-out duration-300 absolute left-nav-slide bg-black h-screen w-2/5 flex justify-center items-center -translate-x-full z-0 -mt-88"
     const handleToggle = () => {
         setOpen(prev => !prev);
         console.log('clicked menu');
@@ -14,8 +14,8 @@ const Navbar = () => {
     }
 
     return (
-        <div className="navbar w-full absolute text-amber-300">
-            <div className=" absolute nav-wrapper w-full my-5 flex flex-row justify-between items-center  z-10">             
+        <div className="navbar w-full bg-black text-amber-300">
+            <div className="nav-wrapper relative w-full py-5 flex flex-row justify-between items-center  z-10">             
                 <div className="left-nav mx-10 flex flex-row text-xl items-center font-semibold">
                     <Hamburger toggled={isOpen} toggle={handleToggle} />
                     {/* <p className="mx-7 uppercase">fxjournal</p> */}
