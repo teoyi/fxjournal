@@ -1,33 +1,49 @@
 import React from 'react';
 
 import { useGetPairsListQuery, useGetExchangeRateQuery } from '../services/twelveDataApi';
+import { useGetIntradayPriceQuery } from '../services/AlphaDataApi';
 
 const Forex = () => {
     const symbol = 'USD/JPY';
     const { data: fxpairs, isFetching } = useGetPairsListQuery();
     const { data: fxrates } = useGetExchangeRateQuery(symbol); 
-    const major = ['EUR/USD', 'USD/JPY', 'GBP/USD', 'USD/CHF', 'AUD/USD', 'USD/CAD', 'NZD/USD'];
+
+    // pairs info manipulation 
+    const otherPairs = [];
+    const major = ['EUR/USD', 'USD/JPY', 'GBP/USD', 'USD/CHF', 'AUD/USD', 'USD/CAD', 'NZD/USD']; //major pairs to be placed on top 
+    fxpairs.data.forEach(pair => {
+        if (!major.includes(pair.symbol)) {
+            otherPairs.push(pair.symbol);
+        };
+    });
+    const allPairs = major.concat(otherPairs);
+    const pairObj = {}; 
+    allPairs.forEach(pair => { 
+        pairObj[pair] = {};
+        pairObj[pair]['symbol'] = pair;
+        pairObj[pair]['from'] = pair.split("/")[0];
+        pairObj[pair]['to'] = pair.split("/")[1];
+    });
+
+    // loading state
     if(isFetching) return "Loading...";
-    console.log(fxpairs);
-    console.log(fxpairs.data[1990]);
-    console.log(fxrates);
-    const allPairs = []; // dictionary to hold all pairs and their price
 
     return (
         <>
-            <div className="bg-black h-screen text-amber-300 flex flex-col justify-center items-evenly">
-                <div>
-                    <h1>Major Currency Pairs</h1>
-                    <div>
-                        {major.map((pair) => (
-                            <div className="max-w-sm rounded overflow-hidden shadhow-lg" key={pair}>
-                                <p>{pair}</p>
-                            </div>
-                        ))}
-                    </div>
+            <div className="bg-black h-pairs-side text-amber-300 flex flex-row justify-start items-evenly">
+                <div className="left-nav overflow-y-scroll h-full w-1/6 text-center ">
+                    {Object.keys(pairObj).map((key)=>( // for each pair in the list, print it out 
+                        <div className="my-2">
+                            <a href={'/forex?from=' + pairObj[key].from + '&to=' + pairObj[key].to}>{pairObj[key].symbol}</a>
+                        </div>
+                    ))}
                 </div>
-                <div>
-                    <h1>Other Pairs</h1>
+                <div className="pair-info w-5/6 flex flex-col justify-center border-4 items-center">
+                        <div className="text-amber-300 flex flex-row justify-between items-center w-full px-5">
+                            <div className="font-semibold text-2xl">USD/JPY</div>
+                            <div className="font-semibold text-2xl">1.3131</div>
+                        </div>
+                        <div>CHART HERE</div>
                 </div>
             </div>
         </>

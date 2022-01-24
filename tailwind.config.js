@@ -18,6 +18,7 @@ module.exports = {
       },
       height: {
         'menu-slide': 'calc(100vh - 48px)',
+        'pairs-side': 'calc(100vh - 88px)',
       },
       lineHeight: {
         'hero-lh': '28rem',

@@ -8,7 +8,7 @@ import Forex from './components/Forex';
 const App = () => {
     return (
         <div className="app m-0">
-            <div className="navBar">
+            <div className="navBar sticky top-0">
                 <Navbar />
             </div>
             <div className="main">
