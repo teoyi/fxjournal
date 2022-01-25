@@ -1,13 +1,13 @@
 import React from 'react';
 
 import { useGetPairsListQuery, useGetExchangeRateQuery } from '../services/twelveDataApi';
-import { useGetIntradayPriceQuery } from '../services/AlphaDataApi';
+import { useGetIntradayPriceQuery } from '../services/alphaDataApi';
 
 const Forex = () => {
     const symbol = 'USD/JPY';
     const { data: fxpairs, isFetching } = useGetPairsListQuery();
     const { data: fxrates } = useGetExchangeRateQuery(symbol); 
-    console.log(fxpairs);
+
     // pairs info manipulation 
     const otherPairs = [];
     const major = ['EUR/USD', 'USD/JPY', 'GBP/USD', 'USD/CHF', 'AUD/USD', 'USD/CAD', 'NZD/USD']; //major pairs to be placed on top 
