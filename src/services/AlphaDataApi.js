@@ -1,15 +1,15 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-const AlphaDataApiHeaders = { 
+const alphaDataApiHeaders = { 
     'x-rapidapi-host': 'alpha-vantage.p.rapidapi.com',
     'x-rapidapi-key': 'c50bede8cdmsh054c023d2bb1889p19d1e2jsn208714a24d50'
 }
 
 const baseUrl = 'https://alpha-vantage.p.rapidapi.com/query';
 
-const createRequest = (url) => ({ url, headers: AlphaDataApiHeaders});
+const createRequest = (url) => ({ url, headers: alphaDataApiHeaders});
 
-export const twelveDataApi = createApi({
+export const alphaDataApi = createApi({
     reducerPath: 'alphaDataApi',
     baseQuery: fetchBaseQuery({ baseUrl }),
     endpoints: (builder) => ({
@@ -21,4 +21,4 @@ export const twelveDataApi = createApi({
 
 export const { 
     useGetIntradayPriceQuery,
-} = twelveDataApi;
+} = alphaDataApi;
