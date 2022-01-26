@@ -1,9 +1,10 @@
 import React from 'react';
 
 import { useGetPairsListQuery, useGetExchangeRateQuery } from '../services/twelveDataApi';
-import { useGetIntradayPriceQuery } from '../services/alphaDataApi';
+import { useGetIntradayPriceQuery, useGetDailyPriceQuery } from '../services/alphaDataApi';
 
 const Forex = () => {
+
     const symbol = 'USD/JPY';
     const { data: fxpairs, isFetching } = useGetPairsListQuery();
     const { data: fxrates } = useGetExchangeRateQuery(symbol); 
@@ -11,11 +12,11 @@ const Forex = () => {
     // pairs info manipulation 
     const otherPairs = [];
     const major = ['EUR/USD', 'USD/JPY', 'GBP/USD', 'USD/CHF', 'AUD/USD', 'USD/CAD', 'NZD/USD']; //major pairs to be placed on top 
-    fxpairs.data.forEach(pair => {
-        if (!major.includes(pair.symbol)) {
-            otherPairs.push(pair.symbol);
-        };
-    });
+    // fxpairs.data.forEach(pair => {
+    //     if (!major.includes(pair.symbol)) {
+    //         otherPairs.push(pair.symbol);
+    //     };
+    // });
     const allPairs = major.concat(otherPairs);
     const pairObj = {}; 
     allPairs.forEach(pair => { 
@@ -25,6 +26,14 @@ const Forex = () => {
         pairObj[pair]['to'] = pair.split("/")[1];
     });
 
+    // intraday price array
+    const from_symbol = 'EUR';
+    const to_symbol = 'USD';
+    const { data: dailyprice } = useGetDailyPriceQuery({ from_symbol, to_symbol });
+    const priceArr = []; 
+    console.log(dailyprice);
+
+
     // loading state
     if(isFetching) return "Loading...";
 
@@ -33,8 +42,8 @@ const Forex = () => {
             <div className="bg-black h-pairs-side text-amber-300 flex flex-row justify-start items-evenly">
                 <div className="left-nav overflow-y-scroll h-full w-1/6 text-center ">
                     {Object.keys(pairObj).map((key)=>( // for each pair in the list, print it out 
-                        <div className="my-2">
-                            <a href={'/forex?from=' + pairObj[key].from + '&to=' + pairObj[key].to}>{pairObj[key].symbol}</a>
+                        <div className="my-2" key={pairObj[key].symbol}>
+                            <a href={'/forex/' + pairObj[key].from + pairObj[key].to}>{pairObj[key].symbol}</a>
                         </div>
                     ))}
                 </div>
