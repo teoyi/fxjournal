@@ -6,17 +6,24 @@ import { useGetIntradayPriceQuery, useGetDailyPriceQuery } from '../services/alp
 const Forex = () => {
 
     const symbol = 'USD/JPY';
+    const from_symbol = 'EUR';
+    const to_symbol = 'USD';
+
     const { data: fxpairs, isFetching } = useGetPairsListQuery();
     const { data: fxrates } = useGetExchangeRateQuery(symbol); 
+    const { data: dailyprice } = useGetDailyPriceQuery({ from_symbol, to_symbol });
+
+    // loading state
+    if(isFetching) return "Loading...";
 
     // pairs info manipulation 
     const otherPairs = [];
     const major = ['EUR/USD', 'USD/JPY', 'GBP/USD', 'USD/CHF', 'AUD/USD', 'USD/CAD', 'NZD/USD']; //major pairs to be placed on top 
-    // fxpairs.data.forEach(pair => {
-    //     if (!major.includes(pair.symbol)) {
-    //         otherPairs.push(pair.symbol);
-    //     };
-    // });
+    fxpairs.data.forEach(pair => {
+        if (!major.includes(pair.symbol)) {
+            otherPairs.push(pair.symbol);
+        };
+    });
     const allPairs = major.concat(otherPairs);
     const pairObj = {}; 
     allPairs.forEach(pair => { 
@@ -27,15 +34,8 @@ const Forex = () => {
     });
 
     // intraday price array
-    const from_symbol = 'EUR';
-    const to_symbol = 'USD';
-    const { data: dailyprice } = useGetDailyPriceQuery({ from_symbol, to_symbol });
     const priceArr = []; 
     console.log(dailyprice);
-
-
-    // loading state
-    if(isFetching) return "Loading...";
 
     return (
         <>

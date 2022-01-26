@@ -20,7 +20,6 @@ export const alphaDataApi = createApi({
         getDailyPrice: builder.query({
             // query: (to_symbol) => createRequest(`?function=FX_DAILY&from_symbol=EUR&to_symbol=${to_symbol}`)
             query: ({ from_symbol, to_symbol }) => createRequest(`?function=FX_DAILY&from_symbol=${from_symbol}&to_symbol=${to_symbol}`)
-            //https://www.alphavantage.co/query?function=FX_DAILY&from_symbol=EUR&to_symbol=USD&apikey=demo
         })
     })
 });
