@@ -1,4 +1,5 @@
 import React from 'react';
+import { LineChart, Line, ResponsiveContainer, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts';
 
 import { useGetPairsListQuery, useGetExchangeRateQuery } from '../services/twelveDataApi';
 import { useGetIntradayPriceQuery, useGetDailyPriceQuery } from '../services/alphaDataApi';
@@ -35,7 +36,11 @@ const Forex = () => {
 
     // intraday price array
     const priceArr = []; 
-    console.log(dailyprice);
+    const timeSeries = dailyprice["Time Series FX (Daily)"]; 
+    for (const date in timeSeries) {
+        const datePriceObj = {"date": date, "close": timeSeries[date]["4. close"]};
+        priceArr.push(datePriceObj);
+    }
 
     return (
         <>
@@ -47,12 +52,24 @@ const Forex = () => {
                         </div>
                     ))}
                 </div>
-                <div className="pair-info w-5/6 flex flex-col justify-center border-4 items-center">
+                <div className="pair-info w-5/6 flex flex-col justify-center items-center">
                         <div className="text-amber-300 flex flex-row justify-between items-center w-full px-5">
                             <div className="font-semibold text-2xl">USD/JPY</div>
                             <div className="font-semibold text-2xl">1.3131</div>
                         </div>
                         <div>CHART HERE</div>
+                        <div className="w-full h-full flex justify-center items-center">
+                            <ResponsiveContainer width="99%" height="99%">
+                                <LineChart data={priceArr}>
+                                    <Line type="monotone" dataKey="close" stroke="#fcd34d" strokeWidth={2} dot={false} />
+                                    {/* <CartesianGrid /> */}
+                                    <XAxis dataKey="date" domain={['auto','auto']} stroke="#fcd34d" />
+                                    <YAxis domain={['auto','auto']} stroke="#fcd34d"/>
+                                    <Tooltip />
+                                </LineChart>
+                            </ResponsiveContainer>
+                        </div>
+                        
                 </div>
             </div>
         </>
