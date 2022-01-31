@@ -9,10 +9,10 @@ import Forex from './components/Forex';
 const App = () => {
     return (
         <div className="app m-0">
-            <div className="navBar sticky top-0">
+            <div className="navBar sticky top-0 z-10">
                 <Navbar />
             </div>
-            <div className="main">
+            <div className="main relative">
                 <Routes>
                     {/* homepage, news, trading journal preview/if signed in then trading journal dashboard, economic calendar, details of currency pairs  */}
                     <Route exact path="/" element={<Homepage />} />
