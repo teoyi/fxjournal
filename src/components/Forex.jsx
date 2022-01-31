@@ -1,22 +1,28 @@
 import React from 'react';
+import moment from 'moment';
+import { useParams } from 'react-router-dom';
 import { LineChart, Line, ResponsiveContainer, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts';
 
 import { useGetPairsListQuery, useGetExchangeRateQuery } from '../services/twelveDataApi';
 import { useGetIntradayPriceQuery, useGetDailyPriceQuery } from '../services/alphaDataApi';
 
 const Forex = () => {
+    
+    const { symbol } = useParams(); //
 
-    const symbol = 'USD/JPY';
-    const from_symbol = 'EUR';
-    const to_symbol = 'USD';
+    let from_symbol, to_symbol;
+    if (symbol) {
+        from_symbol = symbol.slice(0,3);
+        to_symbol = symbol.slice(3,6);
+    }
 
     const { data: fxpairs, isFetching } = useGetPairsListQuery();
     const { data: fxrates } = useGetExchangeRateQuery(symbol); 
     const { data: dailyprice } = useGetDailyPriceQuery({ from_symbol, to_symbol });
-
     // loading state
     if(isFetching) return "Loading...";
 
+    // console.log(dailyprice); 
     // pairs info manipulation 
     const otherPairs = [];
     const major = ['EUR/USD', 'USD/JPY', 'GBP/USD', 'USD/CHF', 'AUD/USD', 'USD/CAD', 'NZD/USD']; //major pairs to be placed on top 
@@ -41,6 +47,11 @@ const Forex = () => {
         const datePriceObj = {"date": date, "close": timeSeries[date]["4. close"]};
         priceArr.push(datePriceObj);
     }
+    // const closingPrice = timeSeries[Object.keys(timeSeries)[0]]["4. close"];
+    let now = new Date(); 
+    var dateString = moment(now).format('YYYY-MM-DD');
+    const closingPrice = timeSeries[dateString]["4. close"];
+    console.log(closingPrice);
 
     return (
         <>
@@ -53,23 +64,27 @@ const Forex = () => {
                     ))}
                 </div>
                 <div className="pair-info w-5/6 flex flex-col justify-center items-center">
-                        <div className="text-amber-300 flex flex-row justify-between items-center w-full px-5">
-                            <div className="font-semibold text-2xl">USD/JPY</div>
-                            <div className="font-semibold text-2xl">1.3131</div>
-                        </div>
-                        <div>CHART HERE</div>
-                        <div className="w-full h-full flex justify-center items-center">
-                            <ResponsiveContainer width="99%" height="99%">
-                                <LineChart data={priceArr}>
-                                    <Line type="monotone" dataKey="close" stroke="#fcd34d" strokeWidth={2} dot={false} />
-                                    {/* <CartesianGrid /> */}
-                                    <XAxis dataKey="date" domain={['auto','auto']} stroke="#fcd34d" />
-                                    <YAxis domain={['auto','auto']} stroke="#fcd34d"/>
-                                    <Tooltip />
-                                </LineChart>
-                            </ResponsiveContainer>
-                        </div>
                         
+                        {!symbol 
+                        ? <div className="uppercase">select a currency from the menu to the left to view their details</div>
+                        :   <>
+                                <div className="text-amber-300 flex flex-row justify-between items-center w-full px-5">
+                                    <div className="font-semibold text-2xl">{from_symbol}/{to_symbol}</div>
+                                    <div className="font-semibold text-2xl">{closingPrice}</div>
+                                </div>   
+                                <div className="w-full h-full flex justify-center items-center">
+                                    <ResponsiveContainer width="99%" height="99%">
+                                        <LineChart data={priceArr}>
+                                            <Line type="monotone" dataKey="close" stroke="#fcd34d" strokeWidth={2} dot={false} />
+                                            {/* <CartesianGrid /> */}
+                                            <XAxis dataKey="date" domain={['auto','auto']} stroke="#fcd34d" />
+                                            <YAxis domain={['auto','auto']} stroke="#fcd34d"/>
+                                            <Tooltip />
+                                        </LineChart>
+                                    </ResponsiveContainer>
+                                </div>
+                            </>
+                        }
                 </div>
             </div>
         </>
