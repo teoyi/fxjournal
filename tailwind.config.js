@@ -28,6 +28,9 @@ module.exports = {
       },
       margin: {
         '17r': '17rem',
+      },
+      zIndex: {
+        'n1' : '-1',
       }
     },
   },

@@ -8,29 +8,30 @@ import { useGetIntradayPriceQuery, useGetDailyPriceQuery } from '../services/alp
 
 const Forex = () => {
     
-    const { symbol } = useParams(); //
+    const { symbol } = useParams(); // get parameters from url 
 
     let from_symbol, to_symbol;
-    if (symbol) {
+    if (symbol) { // assign parameters to create param variables for api call 
         from_symbol = symbol.slice(0,3);
         to_symbol = symbol.slice(3,6);
     }
 
+    // API declaration
     const { data: fxpairs, isFetching } = useGetPairsListQuery();
     const { data: fxrates } = useGetExchangeRateQuery(symbol); 
     const { data: dailyprice } = useGetDailyPriceQuery({ from_symbol, to_symbol });
+
     // loading state
     if(isFetching) return "Loading...";
 
-    // console.log(dailyprice); 
     // pairs info manipulation 
     const otherPairs = [];
     const major = ['EUR/USD', 'USD/JPY', 'GBP/USD', 'USD/CHF', 'AUD/USD', 'USD/CAD', 'NZD/USD']; //major pairs to be placed on top 
-    fxpairs.data.forEach(pair => {
-        if (!major.includes(pair.symbol)) {
-            otherPairs.push(pair.symbol);
-        };
-    });
+    // fxpairs.data.forEach(pair => {
+    //     if (!major.includes(pair.symbol)) {
+    //         otherPairs.push(pair.symbol);
+    //     };
+    // });
     const allPairs = major.concat(otherPairs);
     const pairObj = {}; 
     allPairs.forEach(pair => { 
@@ -43,15 +44,17 @@ const Forex = () => {
     // intraday price array
     const priceArr = []; 
     const timeSeries = dailyprice["Time Series FX (Daily)"]; 
+    let closingPrice;
     for (const date in timeSeries) {
+        let now = new Date(); 
+        var dateString = moment(now).format('YYYY-MM-DD');
+        if (date === dateString) { 
+            console.log(date);
+            closingPrice = timeSeries[date]["4. close"]
+        }
         const datePriceObj = {"date": date, "close": timeSeries[date]["4. close"]};
         priceArr.push(datePriceObj);
     }
-    // const closingPrice = timeSeries[Object.keys(timeSeries)[0]]["4. close"];
-    let now = new Date(); 
-    var dateString = moment(now).format('YYYY-MM-DD');
-    const closingPrice = timeSeries[dateString]["4. close"];
-    console.log(closingPrice);
 
     return (
         <>
@@ -64,7 +67,6 @@ const Forex = () => {
                     ))}
                 </div>
                 <div className="pair-info w-5/6 flex flex-col justify-center items-center">
-                        
                         {!symbol 
                         ? <div className="uppercase">select a currency from the menu to the left to view their details</div>
                         :   <>
@@ -72,7 +74,7 @@ const Forex = () => {
                                     <div className="font-semibold text-2xl">{from_symbol}/{to_symbol}</div>
                                     <div className="font-semibold text-2xl">{closingPrice}</div>
                                 </div>   
-                                <div className="w-full h-full flex justify-center items-center">
+                                <div className="w-full h-full flex justify-center items-center px-10 py-5">
                                     <ResponsiveContainer width="99%" height="99%">
                                         <LineChart data={priceArr}>
                                             <Line type="monotone" dataKey="close" stroke="#fcd34d" strokeWidth={2} dot={false} />

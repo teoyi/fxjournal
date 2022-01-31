@@ -15,12 +15,11 @@ const Navbar = () => {
 
     return (
         <div className="navbar w-full bg-black text-amber-300">
-            <div className="nav-wrapper relative w-full py-5 flex flex-row justify-between items-center  z-10">             
+            <div className="nav-wrapper relative w-full py-5 flex flex-row justify-between items-center z-10">             
                 <div className="left-nav mx-10 flex flex-row text-xl items-center font-semibold">
                     <Hamburger toggled={isOpen} toggle={handleToggle} />
                     {/* <p className="mx-7 uppercase">fxjournal</p> */}
                 </div>
-                
                 <div className="right-nav mx-10 text-xl font-semibold flex items-center uppercase">
                     <p>login</p>
                 </div>
