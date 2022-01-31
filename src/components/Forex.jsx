@@ -68,7 +68,7 @@ const Forex = () => {
                 </div>
                 <div className="pair-info w-5/6 flex flex-col justify-center items-center">
                         {!symbol 
-                        ? <div className="uppercase">select a currency from the menu to the left to view their details</div>
+                        ? <div className="uppercase">select a currency from the menu to the left to view their chart</div>
                         :   <>
                                 <div className="text-amber-300 flex flex-row justify-between items-center w-full px-5">
                                     <div className="font-semibold text-2xl">{from_symbol}/{to_symbol}</div>
