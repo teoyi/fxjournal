@@ -81,7 +81,7 @@ const Forex = () => {
                                             {/* <CartesianGrid /> */}
                                             <XAxis dataKey="date" domain={['auto','auto']} stroke="#fcd34d" />
                                             <YAxis domain={['auto','auto']} stroke="#fcd34d"/>
-                                            <Tooltip />
+                                            <Tooltip  itemStyle={{color:"#fcd34d"}} contentStyle={{background:"black", border:"1px solid #fcd34d"}} />
                                         </LineChart>
                                     </ResponsiveContainer>
                                 </div>
