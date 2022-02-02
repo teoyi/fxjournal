@@ -27,7 +27,7 @@ const Navbar = () => {
             <div className={isOpen ? toOpen : toClose}>
                 <div className="nav-link-wrapper flex-col w-full h-5/6 flex text-4xl items-center justify-evenly uppercase font-semibold text-amber-300">
                     <a href="/">home</a>
-                    <a href="/">news</a>
+                    <a href="/news">news</a>
                     <a href="/forex">currencies</a>
                     <a href="/">trade journal</a>
                     <a href="/">login</a>

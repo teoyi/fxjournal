@@ -18,7 +18,7 @@ const Forex = () => {
 
     // API declaration
     const { data: fxpairs, isFetching } = useGetPairsListQuery();
-    const { data: fxrates } = useGetExchangeRateQuery(symbol); 
+    // const { data: fxrates } = useGetExchangeRateQuery(symbol); 
     const { data: dailyprice } = useGetDailyPriceQuery({ from_symbol, to_symbol });
 
     // loading state
@@ -27,11 +27,11 @@ const Forex = () => {
     // pairs info manipulation 
     const otherPairs = [];
     const major = ['EUR/USD', 'USD/JPY', 'GBP/USD', 'USD/CHF', 'AUD/USD', 'USD/CAD', 'NZD/USD']; //major pairs to be placed on top 
-    // fxpairs.data.forEach(pair => {
-    //     if (!major.includes(pair.symbol)) {
-    //         otherPairs.push(pair.symbol);
-    //     };
-    // });
+    fxpairs.data.forEach(pair => {
+        if (!major.includes(pair.symbol)) {
+            otherPairs.push(pair.symbol);
+        };
+    });
     const allPairs = major.concat(otherPairs);
     const pairObj = {}; 
     allPairs.forEach(pair => { 

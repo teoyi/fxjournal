@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 // import './App.css';
 import Homepage from './components/Homepage/Homepage';
 import Forex from './components/Forex';
+import News from './components/News';
 // import ForexDetails from './components/ForexDetails';
 
 const App = () => {
@@ -16,12 +17,14 @@ const App = () => {
                 <Routes>
                     {/* homepage, news, trading journal preview/if signed in then trading journal dashboard, economic calendar, details of currency pairs  */}
                     <Route exact path="/" element={<Homepage />} />
-                    {/* <Route exact path="/forex/:symbol?" element={<Forex />} /> */}
                     <Route exact path="/forex">
                         <Route exact path=":symbol" element={<Forex />} />
                         <Route exact path="" element={<Forex />} />
                     </Route>
-                    {/* <Route exact path="/forex/:symbol" element={<ForexDetails />} /> */}
+                    <Route exact path="/news">
+                        <Route exact path=":symbol" element={<News />} />
+                        <Route exact path="" element={<News />} />
+                    </Route>
                 </Routes>
             </div>
             <div className="footer">
