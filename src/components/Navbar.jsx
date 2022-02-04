@@ -14,7 +14,7 @@ const Navbar = () => {
     }
 
     return (
-        <div className="navbar w-full bg-black text-amber-300">
+        <div className="navbar w-full bg-black text-banana">
             <div className="nav-wrapper relative w-full py-5 flex flex-row justify-between items-center z-10">             
                 <div className="left-nav mx-10 flex flex-row text-xl items-center font-semibold">
                     <Hamburger toggled={isOpen} toggle={handleToggle} />
@@ -25,7 +25,7 @@ const Navbar = () => {
                 </div>
             </div>
             <div className={isOpen ? toOpen : toClose}>
-                <div className="nav-link-wrapper flex-col w-full h-5/6 flex text-4xl items-center justify-evenly uppercase font-semibold text-amber-300">
+                <div className="nav-link-wrapper flex-col w-full h-5/6 flex text-4xl items-center justify-evenly uppercase font-semibold text-banana">
                     <a href="/">home</a>
                     <a href="/news">news</a>
                     <a href="/forex">currencies</a>

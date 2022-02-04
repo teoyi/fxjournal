@@ -58,7 +58,7 @@ const Forex = () => {
 
     return (
         <>
-            <div className="bg-black h-pairs-side text-amber-300 flex flex-row justify-start items-evenly">
+            <div className="bg-black h-pairs-side text-banana flex flex-row justify-start items-evenly">
                 <div className="left-nav overflow-y-scroll h-full w-1/6 text-center ">
                     {Object.keys(pairObj).map((key)=>( // for each pair in the list, print it out 
                         <div className="my-2" key={pairObj[key].symbol}>
@@ -70,7 +70,7 @@ const Forex = () => {
                         {!symbol 
                         ? <div className="uppercase">select a currency from the menu to the left to view their chart</div>
                         :   <>
-                                <div className="text-amber-300 flex flex-row justify-between items-center w-full px-5">
+                                <div className="text-banana flex flex-row justify-between items-center w-full px-5">
                                     <div className="font-semibold text-2xl">{from_symbol}/{to_symbol}</div>
                                     <div className="font-semibold text-2xl">{closingPrice}</div>
                                 </div>   

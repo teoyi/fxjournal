@@ -27,12 +27,19 @@ module.exports = {
         '88': '88px',
         '25p': '25px',
         '10p': '10px',
+        '35p': '35px',
+        '100p': '100px',
       },
       margin: {
         '17r': '17rem',
       },
       zIndex: {
         'n1' : '-1',
+      },
+      colors: {
+        'banana': '#F9D342',
+        'backdrop': '#292826',
+        'hr-line': '#515151',
       }
     },
   },
