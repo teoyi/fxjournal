@@ -1,0 +1,7 @@
+20220207	16:59:05	ec9c237c-68e5-4670-8c13-429fc4da05a1	TypeError: allowedOrigins.includes is not a function
+20220207	17:00:42	1d85117f-7e58-454e-b6ca-811112bf0277	TypeError: allowedOrigins.includes is not a function
+20220207	17:01:09	0c62f9c7-ef60-4d15-9b7b-6bc8a9565baf	TypeError: allowedOrigins.includes is not a function
+20220207	17:01:10	0ac26281-6ade-4cdf-baba-9b59c4c66115	TypeError: allowedOrigins.includes is not a function
+20220207	17:01:17	2461d2a9-3ab3-4277-b1e0-1a34a04dd8a8	TypeError: allowedOrigins.includes is not a function
+20220207	17:03:25	df0b2960-8aa4-464d-b19d-7166f0c5ae27	TypeError: allowedOrigins.includes is not a function
+20220207	17:04:39	c510e616-5e25-4671-a54f-109babc2a8c5	TypeError: allowedOrigins.includes is not a function
