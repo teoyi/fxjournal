@@ -6,3 +6,16 @@
 20220207	17:03:25	df0b2960-8aa4-464d-b19d-7166f0c5ae27	TypeError: allowedOrigins.includes is not a function
 20220207	17:04:39	c510e616-5e25-4671-a54f-109babc2a8c5	TypeError: allowedOrigins.includes is not a function
 20220208	15:03:11	faf647b7-0d7e-4ebe-9198-1f05b8a0ec2f	SyntaxError: Unexpected token u in JSON at position 2
+20220208	17:23:07	411eb690-e3e8-4aaa-a7bc-314573870b0e	Error: Cannot set headers after they are sent to the client
+20220208	17:24:24	51ddad82-91d6-4fe7-bf25-758d79a60c55	Error: Cannot set headers after they are sent to the client
+20220208	17:25:44	e854b384-0bf3-428a-8649-deec7410ae98	Error: Cannot set headers after they are sent to the client
+20220208	17:32:42	f83c8752-997f-4e9e-a178-26e8fe70af84	Error: Cannot set headers after they are sent to the client
+20220208	17:36:09	fb941a8b-586e-4fc4-964b-6bd120310c03	Error: Cannot set headers after they are sent to the client
+20220208	17:36:10	8d4c7fae-2526-4e96-a501-06e3c98efbb9	Error: Cannot set headers after they are sent to the client
+20220208	17:36:10	c037bcbf-7bfa-4e3d-b8e8-1679384c8897	Error: Cannot set headers after they are sent to the client
+20220208	17:36:11	d2f2bf02-0695-4a6f-b4eb-8c4512c14bf5	Error: Cannot set headers after they are sent to the client
+20220208	17:36:47	ea2be658-baa3-4002-9e53-180b2023eaf6	Error: Cannot set headers after they are sent to the client
+20220208	17:40:07	bb39c069-1672-48ca-8d43-7259545dc402	Error: Cannot set headers after they are sent to the client
+20220208	17:58:48	32840179-d60a-40b9-9d3b-d837cb5200fe	Error: Cannot set headers after they are sent to the client
+20220208	18:02:22	0d5f5b4e-b837-4a4d-ac77-802b63f7d7dc	Error: Cannot set headers after they are sent to the client
+20220208	18:02:38	52cabede-5bfc-4e9f-9178-890a65c58bd6	Error: Cannot set headers after they are sent to the client
