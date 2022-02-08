@@ -38,9 +38,14 @@ app.use('/auth', require('./routes/auth'));
 app.use('/refresh', require('./routes/refresh'));
 app.use('/logout', require('./routes/logout'));
 
+// api database access 
+app.use('/users', require('./routes/api/users'));
+app.use('/journals', require('./routes/api/journals'));
+
+// error handling
 app.use(errorHandler);
 
-
+// establish connection + check 
 mongoose.connection.once('open', () => {
     console.log('Connected to fxjournalDB');
     app.listen(PORT, () => console.log(`Server running on port ${PORT}`))

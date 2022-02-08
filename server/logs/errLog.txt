@@ -5,3 +5,4 @@
 20220207	17:01:17	2461d2a9-3ab3-4277-b1e0-1a34a04dd8a8	TypeError: allowedOrigins.includes is not a function
 20220207	17:03:25	df0b2960-8aa4-464d-b19d-7166f0c5ae27	TypeError: allowedOrigins.includes is not a function
 20220207	17:04:39	c510e616-5e25-4671-a54f-109babc2a8c5	TypeError: allowedOrigins.includes is not a function
+20220208	15:03:11	faf647b7-0d7e-4ebe-9198-1f05b8a0ec2f	SyntaxError: Unexpected token u in JSON at position 2
