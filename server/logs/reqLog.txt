@@ -164,3 +164,16 @@
 20220209	11:56:11	ffc7d1e4-a2dd-4152-9eb6-18a7b4424c66	GET	undefined	/users
 20220209	11:56:20	bacad361-a9de-4515-b880-7ff13f61c6a2	POST	undefined	/auth
 20220209	11:56:26	e2e6c837-5d11-4aa8-b6b2-0206d122ddc9	DELETE	undefined	/users
+20220209	12:04:36	83d64ff5-cd24-44ec-a84e-7fdc11f3f8a5	GET	undefined	/logout
+20220209	12:04:48	e6079ccf-8bc2-4c0a-a2f3-c9b2ff603d09	POST	undefined	/auth
+20220209	12:04:55	af02d142-2ad1-498c-9b56-daebb3ede726	GET	undefined	/logout
+20220209	12:05:12	d156243e-06ae-4c12-9552-d5cb544a134a	POST	undefined	/auth
+20220209	12:06:07	2837c33b-aaa0-46d1-8e79-cc88f2da51f4	GET	undefined	/logout
+20220209	12:10:53	fd537245-306f-4571-b652-7fbdc2d06266	GET	undefined	/logout
+20220209	12:11:03	654054f8-cd0d-4f99-b36c-5696a918baad	POST	undefined	/auth
+20220209	12:12:19	5677569a-0b9f-42b0-acfa-91b9d6c06942	GET	undefined	/logout
+20220209	12:12:37	4993fc3a-121c-4f0e-bdae-207c3826ae66	GET	undefined	/logout
+20220209	12:15:21	6397f83b-c8e0-4c2f-adcc-c94992d64e9c	POST	undefined	/auth
+20220209	12:15:38	622ed3e3-6b6e-4740-890f-9a0a2e975328	GET	undefined	/logout
+20220209	12:15:50	88ad8f16-2257-48af-a999-ca1d9177ceb9	POST	undefined	/auth
+20220209	12:15:58	e9638544-a047-475e-a4a4-6da5ac4d2d2f	GET	undefined	/logout
