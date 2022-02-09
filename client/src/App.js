@@ -5,6 +5,8 @@ import Navbar from './components/Navbar';
 import Homepage from './components/Homepage/Homepage';
 import Forex from './components/Forex';
 import News from './components/News';
+import Register from './components/Register';
+import Login from './components/Login';
 // import ForexDetails from './components/ForexDetails';
 
 const App = () => {
@@ -17,6 +19,8 @@ const App = () => {
                 <Routes>
                     {/* homepage, news, trading journal preview/if signed in then trading journal dashboard, economic calendar, details of currency pairs  */}
                     <Route exact path="/" element={<Homepage />} />
+                    <Route exact path="/register" element={<Register />} />
+                    <Route exact path="/login" element={<Login />} />
                     <Route exact path="/forex">
                         <Route exact path=":symbol" element={<Forex />} />
                         <Route exact path="" element={<Forex />} />
