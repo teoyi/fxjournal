@@ -1,13 +1,9 @@
-const { find } = require("../model/Users");
-
 const verifyRoles = (...allowedRoles) => {
     return (req, res, next) => {
-        if (!req?.roles) return res.sendStatus(401); // unauthorized 
-        console.log(req.roles);
+        if (!req?.role) return res.sendStatus(401); // unauthorized 
         const rolesArray = [...allowedRoles]; 
-        const result = req.roles.map(role => rolesArray.includes(role)); // for each item check if included
+        const result = req.role.map(role => rolesArray.includes(role)).find(val => val === true); // check if there is a truthy val
         console.log(result);
-        find(val => val === true); // if there is a single true
         if (!result) return res.sendStatus(401); // unauthorized
         next(); 
     };
