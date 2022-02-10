@@ -6,12 +6,15 @@ import { Provider } from 'react-redux';
 import App from './App';
 import store from './app/store';
 import './index.css';
+import { AuthProvider } from './context/AuthProvider';
 
 
 ReactDOM.render(
     <Router>
-        <Provider store={store}>
-            <App />
-        </Provider>
+        <AuthProvider>
+            <Provider store={store}>
+                <App />
+            </Provider>
+        </AuthProvider>
     </Router>
     , document.getElementById('root'));
