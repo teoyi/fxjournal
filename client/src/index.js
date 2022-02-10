@@ -11,12 +11,12 @@ import { AuthProvider } from './context/AuthProvider';
 
 ReactDOM.render(
     <Router>
-        <AuthProvider>
-            <Provider store={store}>
+        <Provider store={store}>
+            <AuthProvider>
                 <Routes>
                     <Route path="/*" element={<App />} />
                 </Routes>
-            </Provider>
-        </AuthProvider>
+            </AuthProvider>
+        </Provider>
     </Router>
     , document.getElementById('root'));

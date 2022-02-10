@@ -4,8 +4,11 @@ import moment from 'moment';
 import { useParams, Link } from 'react-router-dom';
 import { useGetPairsListQuery } from '../services/twelveDataApi';
 import { useGetBingSearchNewsQuery, useGetBingCategoryNewsQuery } from '../services/bingNewsApi';
+import useAuth from '../hooks/useAuth';
 
 const News = () => {
+    // const { auth } = useAuth();
+    // console.log(auth);
     const { symbol } = useParams(); // get parameters from url 
     const [newsQuery, setNewsQuery] = useState('');
 

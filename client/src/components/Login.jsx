@@ -1,11 +1,17 @@
 import React, { useRef, useState, useEffect } from 'react';
 import axios from '../api/axios';
 import useAuth from '../hooks/useAuth';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 const LOGIN_URL = '/auth';
 
 const Login = () => {
   const { setAuth } = useAuth();
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+  // console.log(from);
 
   const userRef = useRef();
   const [username, setUsername] = useState('');
@@ -23,7 +29,6 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(username, password);
     
     try {
       const response = await axios.post(
@@ -36,11 +41,12 @@ const Login = () => {
       );
 
       const accessToken = response?.data?.accessToken;
-      const roles = response?.data?.role;
+      const roles = response?.data?.roles;
+
       setAuth({ username, password, roles, accessToken });
-      setSuccess(true);
       setUsername('');
-      setPassword('');      
+      setPassword('');  
+      navigate(from, { replace: true });
     } catch (error) {
         if (!error?.response) {
           setErrMsg('No Server Response');

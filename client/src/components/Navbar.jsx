@@ -17,6 +17,7 @@ const Navbar = () => {
     const loc = useLocation();
     const authPath = ['/register', '/login'];
     const [navType, setNavType] = useState(authPath.includes(loc.pathname) ? 'back' : 'slide');
+    console.log(loc.pathname);
 
     // history handle 
     const navigate = useNavigate(); 
