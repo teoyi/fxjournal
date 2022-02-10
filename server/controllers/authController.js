@@ -37,7 +37,7 @@ const handleLogin = async (req, res) => {
         console.log(result);
 
         // set cookie for refresh token 
-        res.cookie('jwt', refreshToken, { httpOnly: true, sameSite: 'None', maxAge: 24 * 60 * 60 * 1000}); // secure: true is needed for prod
+        res.cookie('jwt', refreshToken, { httpOnly: true, secure: true, sameSite: 'None', maxAge: 24 * 60 * 60 * 1000}); // secure: true is needed for prod
         res.json({ accessToken, roles });
     } else {
         res.sendStatus(401); //unauthorized
