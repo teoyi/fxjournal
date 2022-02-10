@@ -1,14 +1,13 @@
-import React, { useRef, useState, useEffect, useContext } from 'react';
-import AuthContext from "../context/AuthProvider";
+import React, { useRef, useState, useEffect } from 'react';
 import axios from '../api/axios';
+import useAuth from '../hooks/useAuth';
 
 const LOGIN_URL = '/auth';
 
 const Login = () => {
-  const { setAuth } = useContext(AuthContext);
+  const { setAuth } = useAuth();
+
   const userRef = useRef();
-  const errRef = useRef();
-  
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [errMsg, setErrMsg] = useState('');
@@ -35,8 +34,7 @@ const Login = () => {
           withCredentials: true
         }
       );
-      console.log(JSON.stringify(response?.data));
-      console.log(JSON.stringify(response));
+
       const accessToken = response?.data?.accessToken;
       const roles = response?.data?.role;
       setAuth({ username, password, roles, accessToken });
@@ -54,8 +52,6 @@ const Login = () => {
           setErrMsg('Login Failed');
         }
     }
-
-
   }
 
   return (
