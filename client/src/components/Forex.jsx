@@ -3,11 +3,12 @@ import moment from 'moment';
 import { useParams } from 'react-router-dom';
 import { LineChart, Line, ResponsiveContainer, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts';
 
+import useAuth from '../hooks/useAuth';
 import { useGetPairsListQuery, useGetExchangeRateQuery } from '../services/twelveDataApi';
 import { useGetIntradayPriceQuery, useGetDailyPriceQuery } from '../services/alphaDataApi';
 
 const Forex = () => {
-    
+    const { auth } = useAuth(); 
     const { symbol } = useParams(); // get parameters from url 
 
     let from_symbol, to_symbol;
@@ -27,11 +28,14 @@ const Forex = () => {
     // pairs info manipulation 
     const otherPairs = [];
     const major = ['EUR/USD', 'USD/JPY', 'GBP/USD', 'USD/CHF', 'AUD/USD', 'USD/CAD', 'NZD/USD']; //major pairs to be placed on top 
-    fxpairs.data.forEach(pair => {
-        if (!major.includes(pair.symbol)) {
-            otherPairs.push(pair.symbol);
-        };
-    });
+    if (auth.username) {
+        fxpairs.data.forEach(pair => {
+            if (!major.includes(pair.symbol)) {
+                otherPairs.push(pair.symbol);
+            };
+        });
+    };
+    
     const allPairs = major.concat(otherPairs);
     const pairObj = {}; 
     allPairs.forEach(pair => { 
@@ -59,7 +63,7 @@ const Forex = () => {
     return (
         <>
             <div className="bg-black h-pairs-side text-banana flex flex-row justify-start items-evenly">
-                <div className="left-nav overflow-y-scroll h-full w-1/6 text-center ">
+                <div className="left-nav overflow-y-hidden border-r border-banana h-full w-1/6 text-center ">
                     {Object.keys(pairObj).map((key)=>( // for each pair in the list, print it out 
                         <div className="my-2" key={pairObj[key].symbol}>
                             <a href={'/forex/' + pairObj[key].from + pairObj[key].to}>{pairObj[key].symbol}</a>
@@ -67,7 +71,12 @@ const Forex = () => {
                     ))}
                 </div>
                 <div className="pair-info w-5/6 flex flex-col justify-center items-center">
-                        {!symbol 
+                        {!auth.username 
+                        ?   <div className="uppercase text-center">
+                            select a currency from the menu to the left to view their chart <br/>
+                            login to view more pairs
+                        </div>
+                        : !symbol 
                         ? <div className="uppercase">select a currency from the menu to the left to view their chart</div>
                         :   <>
                                 <div className="text-banana flex flex-row justify-between items-center w-full px-5">

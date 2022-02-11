@@ -21,6 +21,14 @@ const App = () => {
                 <Route exact path="/" element={<Homepage />} />
                 <Route exact path="/register" element={<Register />} />
                 <Route exact path="/login" element={<Login />} />
+                <Route exact path="/forex">
+                    <Route exact path=":symbol" element={<Forex />} />
+                    <Route exact path="" element={<Forex />} />
+                </Route>
+                <Route exact path="/news">
+                    <Route exact path=":symbol" element={<News />} />
+                    <Route exact path="" element={<News />} />
+                </Route>
                 <Route element={<RequireAuth />}>
                     {/* <Route exact path="/forex">
                         <Route exact path=":symbol" element={<Forex />} />

@@ -19,12 +19,13 @@ const Navbar = () => {
 
     // nav type state 
     const loc = useLocation();
-    const authPath = ['/register', '/login'];
+    
     // const [navType, setNavType] = useState(authPath.includes(loc.pathname) ? 'back' : 'slide');
     const [navType, setNavType] = useState('');
     // console.log(loc.pathname);
     useEffect(() => {
         console.log(loc.pathname)
+        const authPath = ['/register', '/login'];
         if (authPath.includes(loc.pathname)) {
             setNavType('back');
         } else {
@@ -63,7 +64,7 @@ const Navbar = () => {
                     <div className={isOpen ? toOpen : toClose}>
                         <div className="nav-link-wrapper flex-col w-full h-5/6 flex text-4xl items-center justify-evenly uppercase font-semibold text-banana">
                             <a href="/">home</a>
-                            <a href="/dashboard">dashaboard</a>
+                            <a href="/dashboard">dashboard</a>
                             <a href="/news">news</a>
                             <a href="/forex">currencies</a>
                             <a href="/">trade journal</a>

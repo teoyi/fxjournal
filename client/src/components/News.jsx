@@ -46,7 +46,7 @@ const News = () => {
   return (
     <>
         <div className="bg-black h-pairs-side text-banana flex flex-row justify-start items-evenly">
-            <div className="left-nav overflow-y-scroll h-full w-1/6 text-center ">
+            <div className="left-nav overflow-y-hidden border-r border-banana h-full w-1/6 text-center ">
                 {Object.keys(pairObj).map((key)=>( // for each pair in the list, print it out 
                     <div className="my-2" key={pairObj[key].symbol}>
                         <a href={'/news/' + pairObj[key].from + pairObj[key].to}>{pairObj[key].symbol}</a>
