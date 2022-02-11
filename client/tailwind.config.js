@@ -5,7 +5,11 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {        
-        'hero-image': "url('../public/img/exchange-wallpaper.jpg')",      
+        'hero-image': "url('../public/img/exchange-wallpaper.jpg')",   
+        'bw1-image': "url('../public/img/b&w1.jpg')",
+        'bw2-image': "url('../public/img/b&w2.jpg')",   
+        'bw3-image': "url('../public/img/b&w3.jpg')",   
+        'bw4-image': "url('../public/img/b&w4.jpg')",   
       },
       fontFamily: {
         "zallord" : [ "Zallord" ],
@@ -14,7 +18,8 @@ module.exports = {
       fontSize: {
         'hero-lg': '25rem',
         'hero-md': '15rem',
-        'hero-sm': '10rem'
+        'hero-sm': '10rem',
+        'auth-lg': '19rem',
       },
       height: {
         'menu-slide': 'calc(100vh - 48px)',
@@ -23,6 +28,7 @@ module.exports = {
       },
       lineHeight: {
         'hero-lh': '28rem',
+        'auth-lh': '20rem',
       },
       spacing: {
         '88': '88px',
@@ -33,6 +39,7 @@ module.exports = {
       },
       margin: {
         '17r': '17rem',
+        '6r': '6rem',
       },
       zIndex: {
         'n1' : '-1',

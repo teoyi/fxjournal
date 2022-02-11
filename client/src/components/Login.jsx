@@ -17,10 +17,12 @@ const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [errMsg, setErrMsg] = useState('');
-  const [success, setSuccess] = useState(false); // once auth is complete, this should be chagned to navigate to dashboard 
+  const [randomNum, setRandomNum] = useState('');
 
   useEffect(() => {
     userRef.current.focus();
+    const randomNum = Math.floor(Math.random() * 4) + 1;
+    setRandomNum(randomNum);
   }, []);
 
   useEffect(() => {
@@ -61,7 +63,13 @@ const Login = () => {
   }
 
   return (
-    <div className="flex flex-col justify-center items-center h-auth-sect bg-black text-banana">
+    <div className="flex flex-row justify-start items-center h-screen bg-black  text-banana">
+      <div className={`w-4/5 absolute bg-bw${randomNum}-image bg-cover blur-sm h-full z-0`}></div>
+      <div className="w-4/5 flex flex-col justify-center items-center h-full z-10">
+        <h1 className="font-goshbe text-auth-lg -mt-6r leading-auth-lh">fxjournal</h1>
+        <p className="font-semibold text-xl">Your one stop shop to review your trades</p>
+      </div>
+      <div className="flex flex-col h-full w-1/5 justify-center items-center bg-black z-10">
         <p className={errMsg ? "block" : "hidden"}>{errMsg}</p>
         <h1>Sign In</h1>
         <form className="flex flex-col" onSubmit={handleSubmit}> 
@@ -91,6 +99,8 @@ const Login = () => {
 
           <button>Sign In</button>
         </form>
+      </div>
+        
     </div>
   )
 }

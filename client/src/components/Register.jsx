@@ -22,9 +22,12 @@ const Register = () => {
 
     const [errMsg, setErrMsg] = useState('');
     const [success, setSuccess] = useState(false);
+    const [randomNum, setRandomNum] = useState('');
 
     useEffect(() => {
         userRef.current.focus(); // on load focus on the username field right away 
+        const randomNum = Math.floor(Math.random() * 4) + 1;
+        setRandomNum(randomNum);
     }, []);
 
     useEffect(() => {
@@ -79,66 +82,73 @@ const Register = () => {
     };
     
     return (
-        <div className="flex flex-col justify-center items-center h-auth-sect bg-black text-banana">
-            <p>{errMsg}</p>
-            <h1 className="uppercase">register</h1>
-            <form className="flex flex-col" onSubmit={handleSubmit} autoComplete="off">
-                
-                <label htmlFor="username">
-                    Username: 
-                </label>
-                <input 
-                    type="text" 
-                    id="username" 
-                    autoComplete="off" 
-                    ref={userRef}
-                    onChange={(e) => setUsername(e.target.value)}
-                    value={username}
-                    required
-                    onFocus={() => setUserFocus(true)}
-                    onBlur={() => setUserFocus(false)} 
-                />
-                <p className={userFocus && username && !validName ? "block" : "hidden" }>
-                    min. 4 characters, beginning with a letter <br />
-                    Letters, numbers, underscores, and hyphens are allowed.
-                </p>
+        <div className="flex flex-row justify-start items-center h-screen bg-black  text-banana">
+            <div className={`w-4/5 absolute bg-bw${randomNum}-image bg-cover blur-sm h-full z-0`}></div>
+            <div className="w-4/5 flex flex-col justify-center items-center h-full z-10">
+                <h1 className="font-goshbe text-auth-lg -mt-6r leading-auth-lh">fxjournal</h1>
+                <p className="font-semibold text-xl">Your one stop shop to review your trades</p>
+            </div>
+            <div className="flex flex-col h-full w-1/5 justify-center items-center bg-black z-10">
+                <p>{errMsg}</p>
+                <h1 className="uppercase">register</h1>
+                <form className="flex flex-col" onSubmit={handleSubmit} autoComplete="off">
+                    
+                    <label htmlFor="username">
+                        Username: 
+                    </label>
+                    <input 
+                        type="text" 
+                        id="username" 
+                        autoComplete="off" 
+                        ref={userRef}
+                        onChange={(e) => setUsername(e.target.value)}
+                        value={username}
+                        required
+                        onFocus={() => setUserFocus(true)}
+                        onBlur={() => setUserFocus(false)} 
+                    />
+                    <p className={userFocus && username && !validName ? "block" : "hidden" }>
+                        min. 4 characters, beginning with a letter <br />
+                        Letters, numbers, underscores, and hyphens are allowed.
+                    </p>
 
-                <label htmlFor="password">
-                    Password: 
-                </label>
-                <input 
-                    type="password" 
-                    id="password" 
-                    onChange={(e) => setPassword(e.target.value)}
-                    value={password}
-                    required
-                    onFocus={() => setPasswordFocus(true)}
-                    onBlur={() => setPasswordFocus(false)} 
-                />
-                <p className={passwordFocus && !validPassword ? "block" : "hidden" }>
-                    min. 8 characters<br />
-                    Must include upper and lowercase letters, a number and a special character.
-                </p>
+                    <label htmlFor="password">
+                        Password: 
+                    </label>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        onChange={(e) => setPassword(e.target.value)}
+                        value={password}
+                        required
+                        onFocus={() => setPasswordFocus(true)}
+                        onBlur={() => setPasswordFocus(false)} 
+                    />
+                    <p className={passwordFocus && !validPassword ? "block" : "hidden" }>
+                        min. 8 characters<br />
+                        Must include upper and lowercase letters, a number and a special character.
+                    </p>
 
-                <label htmlFor="confirm_password">
-                    Confirm Password: 
-                </label>
-                <input 
-                    type="password" 
-                    id="confirm_password" 
-                    onChange={(e) => setMatchPassword(e.target.value)}
-                    value={matchPassword}
-                    required
-                    onFocus={() => setMatchFocus(true)}
-                    onBlur={() => setMatchFocus(false)} 
-                />
-                <p className={matchFocus && !validMatch ? "block" : "hidden" }>
-                    Passwords do not match
-                </p>
+                    <label htmlFor="confirm_password">
+                        Confirm Password: 
+                    </label>
+                    <input 
+                        type="password" 
+                        id="confirm_password" 
+                        onChange={(e) => setMatchPassword(e.target.value)}
+                        value={matchPassword}
+                        required
+                        onFocus={() => setMatchFocus(true)}
+                        onBlur={() => setMatchFocus(false)} 
+                    />
+                    <p className={matchFocus && !validMatch ? "block" : "hidden" }>
+                        Passwords do not match
+                    </p>
 
-                <button disabled={!validName || !validPassword || !validMatch ? true : false}>Sign up</button>
-            </form>
-        </div>
+                    <button disabled={!validName || !validPassword || !validMatch ? true : false}>Sign up</button>
+                </form>
+            </div>
+      </div>
     )
 }
 
