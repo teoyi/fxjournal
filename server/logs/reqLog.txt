@@ -328,3 +328,10 @@
 20220211	15:39:38	9e7c358a-f6c6-4da6-9b4a-c1b91cfc0744	POST	http://localhost:3000	/auth
 20220211	15:40:30	1148ae10-94bb-44f3-9a84-d522e5bc3959	OPTIONS	http://localhost:3000	/auth
 20220211	15:40:30	f9d32abe-1459-42f7-8253-6c742eb6d892	POST	http://localhost:3000	/auth
+20220211	15:46:59	c8d5e934-2b52-48b2-87af-bfa841d35e84	OPTIONS	http://localhost:3000	/auth
+20220211	15:46:59	1e2dd661-35a8-4f20-8087-85f170cbc759	POST	http://localhost:3000	/auth
+20220211	15:50:47	a0095a2a-aed4-4a95-bdbb-c4cd42884b6a	GET	http://localhost:3000	/refresh
+20220211	16:13:32	602d8e4f-0f70-406a-b0ad-d35dc33baadb	OPTIONS	http://localhost:3000	/auth
+20220211	16:13:32	a28b8a0a-c614-4049-b780-205390d5df1c	POST	http://localhost:3000	/auth
+20220211	16:14:58	4dd00059-e53a-4f53-be1a-ae0570d2b20e	OPTIONS	http://localhost:3000	/auth
+20220211	16:14:58	e92dc4fb-5f1b-44d4-a570-50d3d191d553	POST	http://localhost:3000	/auth

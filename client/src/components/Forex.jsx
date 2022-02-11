@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { LineChart, Line, ResponsiveContainer, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts';
 
 import useAuth from '../hooks/useAuth';
+import { Link } from 'react-router-dom';
 import { useGetPairsListQuery, useGetExchangeRateQuery } from '../services/twelveDataApi';
 import { useGetIntradayPriceQuery, useGetDailyPriceQuery } from '../services/alphaDataApi';
 
@@ -66,7 +67,7 @@ const Forex = () => {
                 <div className="left-nav overflow-y-hidden border-r border-banana h-full w-1/6 text-center ">
                     {Object.keys(pairObj).map((key)=>( // for each pair in the list, print it out 
                         <div className="my-2" key={pairObj[key].symbol}>
-                            <a href={'/forex/' + pairObj[key].from + pairObj[key].to}>{pairObj[key].symbol}</a>
+                            <Link to={'/forex/' + pairObj[key].from + pairObj[key].to}>{pairObj[key].symbol}</Link>
                         </div>
                     ))}
                 </div>

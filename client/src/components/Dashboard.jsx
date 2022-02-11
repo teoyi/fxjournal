@@ -1,11 +1,18 @@
 import React from 'react'
 import useAuth from '../hooks/useAuth';
+import useRefreshToken from '../hooks/useRefreshToken';
+
+import useAxiosPrivate from '../hooks/useAxiosPrivate';
 
 const Dashboard = () => {
     const { auth } = useAuth(); 
+    const refresh = useRefreshToken();
     console.log(auth);
     return (
-    <div>Dashboard</div>
+    <>
+      <div>Dashboard</div>
+      <button onClick={() => refresh()}>Refresh</button>
+    </>
   )
 }
 
