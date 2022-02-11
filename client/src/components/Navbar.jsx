@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { Turn as Hamburger } from 'hamburger-react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, Link } from 'react-router-dom';
 import useAuth from '../hooks/useAuth';
 
 
@@ -19,7 +18,7 @@ const Navbar = () => {
 
     // nav type state 
     const loc = useLocation();
-    
+    console.log(loc);
     // const [navType, setNavType] = useState(authPath.includes(loc.pathname) ? 'back' : 'slide');
     const [navType, setNavType] = useState('');
     // console.log(loc.pathname);
@@ -63,12 +62,12 @@ const Navbar = () => {
                     </div>
                     <div className={isOpen ? toOpen : toClose}>
                         <div className="nav-link-wrapper flex-col w-full h-5/6 flex text-4xl items-center justify-evenly uppercase font-semibold text-banana">
-                            <a href="/">home</a>
-                            <a href="/dashboard">dashboard</a>
-                            <a href="/news">news</a>
-                            <a href="/forex">currencies</a>
-                            <a href="/">trade journal</a>
-                            {/* <a href="/login">logout</a> */}
+                            <Link to="/" onClick={handleToggle}>home</Link>
+                            <Link to="/dashboard" onClick={handleToggle}>dashboard</Link>
+                            <Link to="/news" onClick={handleToggle}>news</Link>
+                            <Link to="forex" onClick={handleToggle}>currencies</Link>
+                            <Link to="/" onClick={handleToggle}>trade journal</Link>
+                            {/* <Link> href="/login">logout</Link> */}
                         </div>
                     </div>
                 </div>
@@ -92,16 +91,16 @@ const Navbar = () => {
                             {/* <p className="mx-7 uppercase">fxjournal</p> */}
                         </div>
                         <div className="right-nav mx-10 text-xl font-semibold flex items-center uppercase">
-                            <a href="/login">login</a>
+                            <Link to="/login">login</Link>
                         </div>
                     </div>
                     <div className={isOpen ? toOpen : toClose}>
                         <div className="nav-link-wrapper flex-col w-full h-5/6 flex text-4xl items-center justify-evenly uppercase font-semibold text-banana">
-                            <a href="/">home</a>
-                            <a href="/news">news</a>
-                            <a href="/forex">currencies</a>
-                            <a href="/">trade journal</a>
-                            <a href="/login">login</a>
+                            <Link to="/" onClick={handleToggle}>home</Link>
+                            <Link to="/news" onClick={handleToggle}>news</Link>
+                            <Link to="/forex" onClick={handleToggle}>currencies</Link>
+                            <Link to="/" onClick={handleToggle}>trade journal</Link>
+                            <Link to="login" onClick={handleToggle}>login</Link>
                         </div>
                     </div>
                 </div>
