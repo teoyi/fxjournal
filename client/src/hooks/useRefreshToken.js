@@ -9,11 +9,11 @@ const useRefreshToken = () => {
         const response = await axios.get('/refresh', {
             withCredentials: true 
         });
-        console.log(response);
+        // console.log(response);
         setAuth(prev => {
-            console.log('right here in retoken ');
-            console.log(JSON.stringify(prev));
-            console.log(response.data.accessToken);
+            // console.log('right here in retoken ');
+            // console.log(JSON.stringify(prev));
+            // console.log(response.data.accessToken);
             return { 
                 ...prev,
                 username: response.data.username,
@@ -21,7 +21,6 @@ const useRefreshToken = () => {
                 accessToken: response.data.accessToken 
             }
         });
-        console.log(auth);
         return response.data.accessToken; 
     };
 
