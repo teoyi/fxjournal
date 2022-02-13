@@ -17,12 +17,25 @@ const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [errMsg, setErrMsg] = useState('');
-  const [randomNum, setRandomNum] = useState('');
+  
+
+  // bg image 
+  const one = "w-4/5 absolute bg-bw1-image bg-cover blur-sm h-full z-0"
+  const two = "w-4/5 absolute bg-bw2-image bg-cover blur-sm h-full z-0"
+  const three = "w-4/5 absolute bg-bw3-image bg-cover blur-sm h-full z-0"
+  const four = "w-4/5 absolute bg-bw4-image bg-cover blur-sm h-full z-0"
+  const [bgImg, setBgImg] = useState('one');
 
   useEffect(() => {
     userRef.current.focus();
     const randomNum = Math.floor(Math.random() * 4) + 1;
-    setRandomNum(randomNum);
+    if (randomNum === 2) {
+      setBgImg('two');
+    } else if (randomNum === 3) {
+      setBgImg('three');
+    } else if (randomNum === 4) {
+      setBgImg('four');
+    }
   }, []);
 
   useEffect(() => {
@@ -72,7 +85,7 @@ const Login = () => {
 
   return (
     <div className="flex flex-row justify-start items-center h-screen bg-black  text-banana">
-      <div className={`w-4/5 absolute bg-bw${randomNum}-image bg-cover blur-sm h-full z-0`}></div>
+      <div className={bgImg === 'two' ? two : bgImg === 'three' ? three : bgImg === 'four' ? four : one }></div>
       <div className="w-4/5 flex flex-col justify-center items-center h-full z-10">
         <h1 className="font-goshbe text-auth-lg -mt-6r leading-auth-lh">fxjournal</h1>
         <p className="font-semibold text-xl">Your one stop shop to review your trades</p>
