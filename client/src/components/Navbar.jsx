@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { Turn as Hamburger } from 'hamburger-react';
 import { useLocation, useNavigate, Link } from 'react-router-dom';
 import useAuth from '../hooks/useAuth';
+import useLogout from '../hooks/useLogout';
 
 
 const Navbar = () => {
     // Authentication 
-    const { auth, setAuth } = useAuth(); 
+    const { auth } = useAuth(); 
+    const logout = useLogout();
 
     // menu state 
     const [isOpen, setOpen] = useState(false); 
@@ -18,12 +20,9 @@ const Navbar = () => {
 
     // nav type state 
     const loc = useLocation();
-    console.log(loc);
-    // const [navType, setNavType] = useState(authPath.includes(loc.pathname) ? 'back' : 'slide');
     const [navType, setNavType] = useState('');
-    // console.log(loc.pathname);
+    
     useEffect(() => {
-        console.log(loc.pathname)
         const authPath = ['/register', '/login'];
         if (authPath.includes(loc.pathname)) {
             setNavType('back');
@@ -37,13 +36,12 @@ const Navbar = () => {
     const handleBack = () => {
         navigate(-1);
     };
-    console.log(auth);
 
     /// logout handler 
     const logoutHandler = async () => {
         // if used in more components, this should be in context 
         // axios to /logout endpoint 
-        setAuth({});
+        await logout();
         navigate('/');
     };
 

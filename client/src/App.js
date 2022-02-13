@@ -10,11 +10,10 @@ import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 import Layout from './components/Layout';
 import RequireAuth from './components/RequireAuth';
+import PersistLogin from './components/PersistLogin';
 // import ForexDetails from './components/ForexDetails';
 
 const App = () => {
-    const {auth} = useAuth();
-    console.log(auth);
     return (
         <Routes>
             <Route path="/" element={<Layout />}>
@@ -29,19 +28,20 @@ const App = () => {
                     <Route exact path=":symbol" element={<News />} />
                     <Route exact path="" element={<News />} />
                 </Route>
-                <Route element={<RequireAuth />}>
-                    {/* <Route exact path="/forex">
-                        <Route exact path=":symbol" element={<Forex />} />
-                        <Route exact path="" element={<Forex />} />
+                <Route element={<PersistLogin />}>
+                    <Route element={<RequireAuth />}>
+                        {/* <Route exact path="/forex">
+                            <Route exact path=":symbol" element={<Forex />} />
+                            <Route exact path="" element={<Forex />} />
+                        </Route>
+                        <Route exact path="/news">
+                            <Route exact path=":symbol" element={<News />} />
+                            <Route exact path="" element={<News />} />
+                        </Route> */}
+                        <Route exact path="/dashboard" element={<Dashboard />} />
                     </Route>
-                    <Route exact path="/news">
-                        <Route exact path=":symbol" element={<News />} />
-                        <Route exact path="" element={<News />} />
-                    </Route> */}
-                    <Route exact path="/dashboard" element={<Dashboard />} />
                 </Route>
             </Route>
-            
         </Routes>
     )
 }

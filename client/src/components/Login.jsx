@@ -6,11 +6,11 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 const LOGIN_URL = '/auth';
 
 const Login = () => {
-  const { setAuth } = useAuth();
+  const { setAuth, persist, setPersist } = useAuth();
 
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from?.pathname || "/";
+  const from = location.state?.from?.pathname || "/dashboard";
   // console.log(from);
 
   const userRef = useRef();
@@ -62,6 +62,14 @@ const Login = () => {
     }
   }
 
+  const togglePersist = () => {
+    setPersist(prev => !prev);
+  };
+
+  useEffect(() => {
+    localStorage.setItem("persist", persist);
+  }, [persist])
+
   return (
     <div className="flex flex-row justify-start items-center h-screen bg-black  text-banana">
       <div className={`w-4/5 absolute bg-bw${randomNum}-image bg-cover blur-sm h-full z-0`}></div>
@@ -96,7 +104,15 @@ const Login = () => {
             value={password}
             required 
           />
-
+          <div className="">
+            <input 
+              type="checkbox" 
+              id="persist"
+              onChange={togglePersist}
+              checked={persist}
+            />
+            <label htmlFor='persist'>Trust this device</label>
+          </div>
           <button>Sign In</button>
         </form>
       </div>

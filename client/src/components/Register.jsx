@@ -60,9 +60,9 @@ const Register = () => {
                     withCredentials: true
                 }
             );
-            console.log(response?.data);
-            console.log(response?.accessToken);
-            console.log(JSON.stringify(response));
+            // console.log(response?.data);
+            // console.log(response?.accessToken);
+            // console.log(JSON.stringify(response));
             setSuccess(true);
 
             // on success, remove inputs and error message

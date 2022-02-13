@@ -7,7 +7,7 @@ import useAxiosPrivate from '../hooks/useAxiosPrivate';
 const Dashboard = () => {
     const { auth } = useAuth(); 
     const refresh = useRefreshToken();
-    console.log(auth);
+    
     return (
     <>
       <div>Dashboard</div>
