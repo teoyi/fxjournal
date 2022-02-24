@@ -83,24 +83,32 @@ const Navbar = () => {
                     </div>
                 </div>
             ) : (
-                <div className="navbar w-full bg-black text-banana">
-                    <div className="nav-wrapper relative w-full py-5 flex flex-row justify-between items-center z-10">             
-                        <div className="left-nav mx-10 flex flex-row text-xl items-center font-semibold">
-                            <Hamburger toggled={isOpen} toggle={handleToggle} />
-                            {/* <p className="mx-7 uppercase">fxjournal</p> */}
-                        </div>
-                        <div className="right-nav mx-10 text-xl font-semibold flex items-center uppercase">
-                            <Link to="/login">login</Link>
-                        </div>
+                // <div className="navbar w-full bg-black text-banana max-w-screen-xl">
+                //     <div className="nav-wrapper relative w-full py-5 flex flex-row justify-between items-center z-10">             
+                //         <div className="left-nav mx-10 flex flex-row text-xl items-center font-semibold">
+                //             <Hamburger toggled={isOpen} toggle={handleToggle} />
+                //             {/* <p className="mx-7 uppercase">fxjournal</p> */}
+                //         </div>
+                //         <div className="right-nav mx-10 text-xl font-semibold flex items-center uppercase">
+                //             <Link to="/login">login</Link>
+                //         </div>
+                //     </div>
+                //     <div className={isOpen ? toOpen : toClose}>
+                //         <div className="nav-link-wrapper flex-col w-full h-5/6 flex text-4xl items-center justify-evenly uppercase font-semibold text-banana">
+                //             <Link to="/" onClick={handleToggle}>home</Link>
+                //             <Link to="/news" onClick={handleToggle}>news</Link>
+                //             <Link to="/forex" onClick={handleToggle}>currencies</Link>
+                //             <Link to="/" onClick={handleToggle}>trade journal</Link>
+                //             <Link to="login" onClick={handleToggle}>login</Link>
+                //         </div>
+                //     </div>
+                // </div>
+                <div className="w-full text-banana flex flex-row justify-between items-center lg:max-w-screen-lg 2xl:max-w-screen-2xl">
+                    <div className="text-xl uppercase font-semibold">
+                        <Link to="/">fxj.</Link>
                     </div>
-                    <div className={isOpen ? toOpen : toClose}>
-                        <div className="nav-link-wrapper flex-col w-full h-5/6 flex text-4xl items-center justify-evenly uppercase font-semibold text-banana">
-                            <Link to="/" onClick={handleToggle}>home</Link>
-                            <Link to="/news" onClick={handleToggle}>news</Link>
-                            <Link to="/forex" onClick={handleToggle}>currencies</Link>
-                            <Link to="/" onClick={handleToggle}>trade journal</Link>
-                            <Link to="login" onClick={handleToggle}>login</Link>
-                        </div>
+                    <div className="py-5 z-10 text-xl uppercase font-semibold">
+                        <Link to="/login">login</Link>
                     </div>
                 </div>
             )}

@@ -16,7 +16,8 @@ module.exports = {
         "goshbe" : [ "Goshbe" ]
       },
       fontSize: {
-        'hero-lg': '25rem',
+        'hero-xl': '25rem',
+        'hero-lg': '20rem',
         'hero-md': '15rem',
         'hero-sm': '10rem',
         'auth-lg': '19rem',
@@ -25,6 +26,7 @@ module.exports = {
         'menu-slide': 'calc(100vh - 48px)',
         'pairs-side': 'calc(100vh - 88px)',
         'auth-sect': 'calc(100vh - 100px)',
+        'hero-home': 'calc(100vh - 68px)',
       },
       lineHeight: {
         'hero-lh': '28rem',
@@ -36,10 +38,12 @@ module.exports = {
         '10p': '10px',
         '35p': '35px',
         '100p': '100px',
+        '20p' : '20px',
       },
       margin: {
         '17r': '17rem',
         '6r': '6rem',
+        '14r': '14rem',
       },
       zIndex: {
         'n1' : '-1',

@@ -2,8 +2,8 @@ import { Outlet } from "react-router-dom";
 import Navbar from './Navbar';
 const Layout = () => {
     return (
-        <div className="app m-0">
-            <nav className="navBar sticky top-0 z-20">
+        <div className="app m-0 bg-black">
+            <nav className="navBar sticky top-0 z-20 bg-black flex justify-center items-center">
                 <Navbar />
             </nav>
             <main className="main relative">
