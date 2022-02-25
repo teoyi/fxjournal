@@ -70,8 +70,8 @@ const Navbar = () => {
                     </div>
                 </div>
             ) : navType === 'back' ? (
-                <div className="navbar absolute w-ful; text-banana">
-                    <div className="nav-wrapper relative w-full py-8 flex flex-row justify-start items-center z-10">             
+                <div className="absolute w-full text-banana mt-100p">
+                    <div className="relative w-full flex flex-row justify-start items-center z-10">             
                         <button onClick={handleBack}>
                             <div className="flex flex-row justify-center items-center mx-10">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-9 w-9" fill="none" viewBox="0 0 24 24" stroke="currentColor">

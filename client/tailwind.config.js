@@ -44,6 +44,7 @@ module.exports = {
         '17r': '17rem',
         '6r': '6rem',
         '14r': '14rem',
+        '100p': '100px',
       },
       zIndex: {
         'n1' : '-1',
