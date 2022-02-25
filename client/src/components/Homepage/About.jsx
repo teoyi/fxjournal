@@ -32,21 +32,21 @@ const About = () => {
                     </button>
                 </div>
                 <div className="w-2/3 flex lg:flex-col 2xl:flex-row ">
-                    <div className="flex w-full lg:flex-row 2xl:flex-col lg:justify-start lg:items-center text-banana m-10">
+                    <div className="flex w-full lg:flex-row 2xl:flex-col lg:justify-start lg:items-center text-banana p-10">
                         <img src={Chart} alt="book icon" className="w-[100px]" />
                         <div className="flex flex-col justify-start w-full items-start lg:ml-20p 2xl:ml-0 2xl:text-center">
                             <h1 className="my-3 text-xl text-center w-full font-semibold uppercase">forex currencies</h1>
                             <p className="">fxjournal is created in mind as a one stop shop where traders are able to access market data straight from their dashboard as a form of reviewing or keeping updated to market movements while journalling.</p>
                         </div>
                     </div>
-                    <div className="flex w-full lg:flex-row 2xl:flex-col lg:justify-start lg:items-center text-banana m-10">
+                    <div className="flex w-full lg:flex-row 2xl:flex-col lg:justify-start lg:items-center text-banana p-10">
                         <img src={Book} alt="book icon" className="w-[100px]" />
                         <div className="flex flex-col justify-start w-full items-start lg:ml-20p 2xl:ml-0 2xl:text-center">
                             <h1 className="my-3 text-xl text-center w-full font-semibold uppercase">Journalling</h1>
                             <p className="">Journalling and reflecting upon closed trades are key for traders to succeed. Our journalling system is centered around numbers which makes back testing convenient and forward testing more consistent.</p>
                         </div>
                     </div>
-                    <div className="flex w-full lg:flex-row 2xl:flex-col lg:justify-start lg:items-center text-banana m-10">
+                    <div className="flex w-full lg:flex-row 2xl:flex-col lg:justify-start lg:items-center text-banana p-10">
                         <img src={Camera} alt="book icon" className="w-[100px]"/>
                         <div className="flex flex-col justify-start w-full items-start lg:ml-20p 2xl:ml-0 2xl:text-center">
                             <h1 className="my-3 text-xl text-center w-full font-semibold uppercase">Ongoing news</h1>
