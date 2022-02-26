@@ -66,15 +66,14 @@ const Navbar = () => {
                             <Link to="/" onClick={handleToggle}>trade journal</Link>
                         </div>
                     </div> */}
-                    <div className="uppercase py-5 text-xl h-full font-semibold w-1/6 flex flex-row justify-center items-center bg-banana text-black border-b border-black">
-                        <Link to="/dashboard" className="">fxjournal</Link>
+                    {/* <div className="uppercase text-dash-3 h-full font-semibold w-1/6 flex flex-row justify-center items-center bg-banana text-black border-b border-black">
+                        <Link to="/dashboard" className="font-goshbe">fxjournal</Link>
                     </div>
                     <div className="py-5 z-10 text-xl uppercase font-semibold w-5/6 flex flex-row justify-end items-center bg-black text-banana">
-                        {/* <Link to="/login">login</Link> */}
                         <div className="mr-20"> 
                             {auth.username}
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             ) : navType === 'back' ? (
                 <div className="absolute w-full text-banana mt-100p">

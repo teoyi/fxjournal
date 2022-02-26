@@ -21,7 +21,7 @@ module.exports = {
         'hero-md': '15rem',
         'hero-sm': '10rem',
         'auth-lg': '19rem',
-        'dash-3': '3rem',
+        'dash-3': '3.25rem',
       },
       height: {
         'menu-slide': 'calc(100vh - 48px)',
