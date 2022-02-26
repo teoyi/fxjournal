@@ -21,12 +21,14 @@ module.exports = {
         'hero-md': '15rem',
         'hero-sm': '10rem',
         'auth-lg': '19rem',
+        'dash-3': '3rem',
       },
       height: {
         'menu-slide': 'calc(100vh - 48px)',
         'pairs-side': 'calc(100vh - 88px)',
         'auth-sect': 'calc(100vh - 100px)',
         'hero-home': 'calc(100vh - 68px)',
+        'dash-height': 'calc(100vh - 69px)',
       },
       lineHeight: {
         'hero-lh': '28rem',

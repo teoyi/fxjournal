@@ -415,3 +415,17 @@
 20220213	16:49:08	ee3c4192-f261-4dd2-aa1d-411ba407ff0e	GET	http://localhost:3000	/refresh
 20220213	16:49:12	41253d90-2a06-4e9f-886d-8662835e2c09	GET	http://localhost:3000	/refresh
 20220213	16:49:15	e590d474-c9a1-42cc-9b1b-799266fb1e33	GET	http://localhost:3000	/logout
+20220226	16:46:00	2477fd2a-e0c7-4a5b-a569-9ff3ca77cfb1	OPTIONS	http://localhost:3000	/auth
+20220226	16:46:00	1d62d226-9e47-48e9-a610-326f593ec0bf	POST	http://localhost:3000	/auth
+20220226	16:50:46	89b6ff32-0188-4d51-bfe4-e8bd2a6d5189	GET	http://localhost:3000	/refresh
+20220226	16:50:50	9ec2899e-6004-48b3-a096-4d4935b2f27d	OPTIONS	http://localhost:3000	/auth
+20220226	16:50:50	a7ad50b4-e2a4-4e1e-9607-b2891e4223ac	POST	http://localhost:3000	/auth
+20220226	16:52:45	2541cc4e-3618-4eb0-a1e1-4a64cfd6e20a	GET	http://localhost:3000	/refresh
+20220226	16:52:49	37067f03-600a-47cc-be82-ffd7059f4fe9	OPTIONS	http://localhost:3000	/auth
+20220226	16:52:49	ebdee98e-2351-4690-8557-5efa019e3057	POST	http://localhost:3000	/auth
+20220226	18:00:33	9f12f515-6ac4-4da4-bc55-4a4d36dd6ffa	GET	http://localhost:3000	/refresh
+20220226	18:00:41	8b299a96-f8bc-4f62-bc0b-8b5ce1edc7c0	OPTIONS	http://localhost:3000	/auth
+20220226	18:00:41	1e2efbd4-712f-479e-b279-e3ef3b749fc1	POST	http://localhost:3000	/auth
+20220226	18:02:15	c4af2394-9c06-4351-8e29-ebe5d8a01273	GET	http://localhost:3000	/logout
+20220226	18:02:29	17208fab-8b68-42a4-a637-bb9d345f1cee	OPTIONS	http://localhost:3000	/auth
+20220226	18:02:29	d8ffc809-a0bd-4809-a9ed-9106863e05ce	POST	http://localhost:3000	/auth

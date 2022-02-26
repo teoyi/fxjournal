@@ -7,7 +7,7 @@ import Forex from './components/Forex';
 import News from './components/News';
 import Register from './components/Register';
 import Login from './components/Login';
-import Dashboard from './components/Dashboard';
+import Dashboard from './components/Dashboard/Dashboard';
 import Layout from './components/Layout';
 import RequireAuth from './components/RequireAuth';
 import PersistLogin from './components/PersistLogin';
@@ -28,7 +28,7 @@ const App = () => {
                     <Route exact path=":symbol" element={<News />} />
                     <Route exact path="" element={<News />} />
                 </Route>
-                <Route exact path="/dashboard" element={<Dashboard />} />
+                {/* <Route exact path="/dashboard" element={<Dashboard />} /> */}
                 <Route element={<PersistLogin />}>
                     <Route element={<RequireAuth />}>
                         {/* <Route exact path="/forex">
@@ -39,7 +39,7 @@ const App = () => {
                             <Route exact path=":symbol" element={<News />} />
                             <Route exact path="" element={<News />} />
                         </Route> */}
-                        {/* <Route exact path="/dashboard" element={<Dashboard />} /> */}
+                        <Route exact path="/dashboard" element={<Dashboard />} />
                     </Route>
                 </Route>
             </Route>

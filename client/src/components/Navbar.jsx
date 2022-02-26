@@ -48,11 +48,10 @@ const Navbar = () => {
     return (
         <>  
             { auth.username ? (
-                <div className="navbar w-full bg-black text-banana">
-                    <div className="nav-wrapper relative w-full py-5 flex flex-row justify-between items-center z-10">             
+                <div className="w-full flex flex-row justify-between items-center">
+                    {/* <div className="nav-wrapper relative w-full py-5 flex flex-row justify-between items-center z-10">             
                         <div className="left-nav mx-10 flex flex-row text-xl items-center font-semibold">
                             <Hamburger toggled={isOpen} toggle={handleToggle} />
-                            {/* <p className="mx-7 uppercase">fxjournal</p> */}
                         </div>
                         <div className="right-nav mx-10 text-xl font-semibold flex items-center uppercase">
                             <button className="uppercase font-semibold" onClick={logoutHandler}>logout</button>
@@ -65,7 +64,15 @@ const Navbar = () => {
                             <Link to="/news" onClick={handleToggle}>news</Link>
                             <Link to="forex" onClick={handleToggle}>currencies</Link>
                             <Link to="/" onClick={handleToggle}>trade journal</Link>
-                            {/* <Link> href="/login">logout</Link> */}
+                        </div>
+                    </div> */}
+                    <div className="uppercase py-5 text-xl h-full font-semibold w-1/6 flex flex-row justify-center items-center bg-banana text-black border-b border-black">
+                        <Link to="/dashboard" className="">fxjournal</Link>
+                    </div>
+                    <div className="py-5 z-10 text-xl uppercase font-semibold w-5/6 flex flex-row justify-end items-center bg-black text-banana">
+                        {/* <Link to="/login">login</Link> */}
+                        <div className="mr-20"> 
+                            {auth.username}
                         </div>
                     </div>
                 </div>
