@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react'
 import axios from "../api/axios";
+import { Link } from 'react-router-dom';
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
@@ -156,7 +157,9 @@ const Register = () => {
                     <p className={matchFocus && !validMatch ? "block" : "hidden" }>
                         Passwords do not match
                     </p>
-
+                    <div> 
+                        Already have an account? <Link className="decoration-solid underline" to="/login">Login</Link>
+                    </div>
                     <button disabled={!validName || !validPassword || !validMatch ? true : false}>Sign up</button>
                 </form>
             </div>

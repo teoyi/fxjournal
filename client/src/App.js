@@ -28,6 +28,7 @@ const App = () => {
                     <Route exact path=":symbol" element={<News />} />
                     <Route exact path="" element={<News />} />
                 </Route>
+                <Route exact path="/dashboard" element={<Dashboard />} />
                 <Route element={<PersistLogin />}>
                     <Route element={<RequireAuth />}>
                         {/* <Route exact path="/forex">
@@ -38,7 +39,7 @@ const App = () => {
                             <Route exact path=":symbol" element={<News />} />
                             <Route exact path="" element={<News />} />
                         </Route> */}
-                        <Route exact path="/dashboard" element={<Dashboard />} />
+                        {/* <Route exact path="/dashboard" element={<Dashboard />} /> */}
                     </Route>
                 </Route>
             </Route>

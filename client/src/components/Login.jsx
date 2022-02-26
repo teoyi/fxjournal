@@ -126,6 +126,9 @@ const Login = () => {
             />
             <label htmlFor='persist'>Trust this device</label>
           </div>
+          <div> 
+            Don't have an account? <Link className="decoration-solid underline" to="/register">Register</Link>
+          </div>
           <button>Sign In</button>
         </form>
       </div>
