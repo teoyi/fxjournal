@@ -27,12 +27,12 @@ const SideNav = () => {
         <div className="flex flex-col justify-between h-full">
             <div className="flex flex-col">
                 <Link className="my-5 flex flex-row items-center" to="/dashboard"><TiHome className="text-2xl mr-3 ml-8"/>Dashboard</Link>
-                <Link className="mb-5 flex flex-row items-center" to="/forex"><AiOutlineLineChart className="text-2xl mr-3 ml-8"/>Charts</Link>
-                <Link className="mb-5 flex flex-row items-center" to="/news"><IoNewspaperOutline className="text-2xl mr-3 ml-8"/>News</Link>
-                <Link className="mb-5 flex flex-row items-center" to="/journals"><IoIosJournal className="text-2xl mr-3 ml-8"/>Trading Journal</Link>
+                <Link className="mb-5 flex flex-row items-center" to="/dashboard/forex"><AiOutlineLineChart className="text-2xl mr-3 ml-8"/>Charts</Link>
+                <Link className="mb-5 flex flex-row items-center" to="/dashboard/news"><IoNewspaperOutline className="text-2xl mr-3 ml-8"/>News</Link>
+                <Link className="mb-5 flex flex-row items-center" to="/dashboard/journals"><IoIosJournal className="text-2xl mr-3 ml-8"/>Trading Journal</Link>
             </div>
             <div className="flex flex-col">
-                <Link className="mb-5 flex flex-row items-center" to="/settings"><RiSettings5Fill className="text-2xl mr-3 ml-8"/>Settings</Link>
+                <Link className="mb-5 flex flex-row items-center" to="/dashboard/settings"><RiSettings5Fill className="text-2xl mr-3 ml-8"/>Settings</Link>
                 <a href="#" className="font-semibold mb-5 flex flex-row items-center" onClick={logoutHandler}><RiLogoutBoxRLine className="text-2xl mr-3 ml-8"/>Logout</a>
             </div>
         </div>

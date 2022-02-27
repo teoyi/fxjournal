@@ -28,7 +28,7 @@ module.exports = {
         'pairs-side': 'calc(100vh - 88px)',
         'auth-sect': 'calc(100vh - 100px)',
         'hero-home': 'calc(100vh - 68px)',
-        'dash-height': 'calc(100vh - 69px)',
+        'dash-height': 'calc(100vh - 64px)',
       },
       lineHeight: {
         'hero-lh': '28rem',
