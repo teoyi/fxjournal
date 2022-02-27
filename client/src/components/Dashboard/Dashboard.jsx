@@ -11,7 +11,7 @@ const Dashboard = () => {
     const refresh = useRefreshToken();
     
     return (
-    <div className="bg-black text-banana flex flex-row">
+    <div className="bg-banana text-banana flex flex-row">
       <SideNav />
       <MainContent />
     </div>

@@ -5,7 +5,7 @@ const MainContent = () => {
     const currentLoc = useLocation(); 
     console.log(currentLoc);
     return (
-    <div className="w-5/6">
+    <div className="w-5/6 rounded-l-3xl bg-black">
         {currentLoc.pathname === "/journals" ? (
             // create a journalling item here. Want to include strategy before journalling so essentially a book to house the pages 
             <div></div>
