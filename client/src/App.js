@@ -41,6 +41,7 @@ const App = () => {
                         </Route> */}
                         <Route exact path="/dashboard">
                             <Route exact path=":path" element={<Dashboard />} />
+                            <Route exact path="" element={<Dashboard />} />
                         </Route>
                     </Route>
                 </Route>
