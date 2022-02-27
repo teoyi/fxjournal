@@ -29,6 +29,7 @@ module.exports = {
         'auth-sect': 'calc(100vh - 100px)',
         'hero-home': 'calc(100vh - 68px)',
         'dash-height': 'calc(100vh - 64px)',
+        'journal-percent': 'calc(100% - 28px)',
       },
       lineHeight: {
         'hero-lh': '28rem',

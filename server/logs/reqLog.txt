@@ -465,3 +465,5 @@
 20220227	14:45:06	f16044f6-ccce-4bd8-8529-c29ad75e879a	OPTIONS	http://localhost:3000	/auth
 20220227	14:45:06	ea6dd5d1-8ebc-428b-b4a4-e357dc865d3b	POST	http://localhost:3000	/auth
 20220227	16:37:03	6fd8d56e-30d9-4c27-aebf-cf083b847643	GET	http://localhost:3000	/refresh
+20220227	17:14:02	994ea81f-15d0-4c0b-9973-214dadca0e9e	OPTIONS	http://localhost:3000	/auth
+20220227	17:14:02	49cdcfd6-3f5e-448a-8286-851bc2f6d2c1	POST	http://localhost:3000	/auth
