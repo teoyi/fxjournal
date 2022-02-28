@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema; 
 
-const journalSchema = new Schema({
+const journalEntrySchema = new Schema({
     userId: {
         type: String, 
         required: true
@@ -9,7 +9,11 @@ const journalSchema = new Schema({
     journalName: {
         type: String,
         required: true
+    },
+    journalContent: {
+        type: String, 
+        required: true
     }
 }, { timestamps: true });
 
-module.exports = mongoose.model('Journal', journalSchema)
+module.exports = mongoose.model('Journal Entry', journalEntrySchema)
