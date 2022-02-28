@@ -43,6 +43,10 @@ const App = () => {
                             <Route exact path=":path" element={<Dashboard />} />
                             <Route exact path="" element={<Dashboard />} />
                         </Route>
+                        <Route exact path="/dashboard/journals">
+                            <Route exact path=":journalName" element={<Dashboard />}/>
+                            <Route exact path="" element={<Dashboard />}/>
+                        </Route>
                     </Route>
                 </Route>
             </Route>

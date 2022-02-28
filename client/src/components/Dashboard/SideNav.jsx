@@ -4,13 +4,11 @@ import useLogout from '../../hooks/useLogout';
 import useAxiosPrivate from '../../hooks/useAxiosPrivate';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 
-
 import { TiHome } from "react-icons/ti";
 import { AiOutlineLineChart } from "react-icons/ai";
 import { IoNewspaperOutline } from "react-icons/io5";
 import { IoIosJournal } from "react-icons/io";
 import { RiSettings5Fill, RiLogoutBoxRLine } from "react-icons/ri";
-
 
 const ALL_JOURNAL_URL = 'journals/all';
 
@@ -79,7 +77,7 @@ const SideNav = () => {
                 <Link className="mb-2 flex flex-row items-center" to="/dashboard/journals" onClick={handleShowList}><IoIosJournal className="text-2xl mr-3 ml-8"/>Trading Journal</Link>
                 <div className={`w-full flex flex-col transition-all ${showList? 'block' : 'hidden'}`}>
                     {journals.map((title) => (
-                        <Link className='ml-12 mr-5 mb-2 text-sm whitespace-nowrap text-ellipsis overflow-hidden border-b border-black' to={`/dashboard/journals/${title}`}>{title}</Link>
+                        <Link className='ml-12 mr-5 mb-2 text-sm whitespace-nowrap text-ellipsis overflow-hidden border-b border-black' to={`/dashboard/journals/${title}`} key={title}>{title}</Link>
                     ))}
                 </div>
                 
