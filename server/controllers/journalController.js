@@ -7,15 +7,14 @@ const createJournal = async (req, res) => {
         return res.status(400).json({ 'message' : 'New journal name and Username is required'});
     };
 
-    const journalExist = await Journal.findOne({ journalName: req.body.journalName });
     const userExist = await Users.findOne({ username: req.body.username});
-
     if (!userExist) { 
         return res.status(404).json({ 'message' : `${req.body.username} does not exist. Please contact administrator.`});
     }
-
     const userId = userExist._id.toString();
 
+    const journalExist = await Journal.findOne({ journalName: req.body.journalName, userId: userId });
+ 
     if (journalExist) {
         return res.status(409).json({ 'message' : `${req.body.journalName} already exists, please choose a different name`})
     } else {
