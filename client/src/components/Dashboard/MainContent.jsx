@@ -13,7 +13,7 @@ const MainContent = () => {
     // console.log(currentLoc.pathname);
     let loc = currentLoc.pathname;
     console.log(typeof loc);
-    let regex = '/dashboard/journals/\w';
+    let regex = '/dashboard/journals/';
     let result = loc.match(regex);
     console.log(result);
 
@@ -25,7 +25,7 @@ const MainContent = () => {
         {currentLoc.pathname === "/dashboard/journals" ? (
             // create a journalling item here. Want to include strategy before journalling so essentially a book to house the pages 
             <Journals />
-        ) : currentLoc.pathname === "/dashboard/journals/:journalName" ? (
+        ) : result ? (
             // journal entries can be found here 
             <JournalsEntry />
         ) : currentLoc.pathname === "/dashboard/news" ? (

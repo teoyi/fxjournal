@@ -44,10 +44,10 @@ const Journals = () => {
             <div className='text-xl'>&lt;Journal name&gt;</div>
             <div>Last Edited: &lt;date&gt;</div> 
         </div>
-        <div className='w-full flex flex-row items center p-5'> 
+        <div className='w-full flex flex-row items flex-wrap center p-5'> 
             {journals.map((journal) => (
                 <Link to={`/dashboard/journals/${journal.journalName}`} key={journal.journalName}>
-                    <div className='m-3 w-[300px] h-[150px] bg-banana text-black rounded-xl'>
+                    <div className='m-3 w-[267px] h-[150px] bg-banana text-black rounded-xl'>
                         <div className='p-3 flex flex-col justify-between h-full'>
                             <h1 className='font-semibold text-2xl'>{journal.journalName}</h1>
                             <p className='text-sm text-right border-t border-black'>Last updated: {Moment(journal.updatedAt).format('d MMM YYYY')}</p>
