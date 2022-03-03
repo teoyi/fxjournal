@@ -3578,3 +3578,7 @@
 20220303	16:56:28	63b79668-c054-4daa-af87-18d392753bdb	POST	http://localhost:3000	/journals/createJournal
 20220303	16:56:28	e9ab99e2-0b5c-43c7-bcef-5b5d968e9968	OPTIONS	http://localhost:3000	/journals/all
 20220303	16:56:28	b33a2e67-5c73-4e0b-af3e-db6401f31f57	GET	http://localhost:3000	/journals/all
+20220303	16:57:31	7c9b4453-f078-497e-aefa-7cd523cae874	OPTIONS	http://localhost:3000	/journals/all
+20220303	16:57:31	73e6a805-fed8-4a37-b4b4-7567a4424ff1	GET	http://localhost:3000	/journals/all
+20220303	16:57:31	b379e315-996b-44c0-9f2b-30c38c43eac8	GET	http://localhost:3000	/refresh
+20220303	16:57:31	e151d923-649d-4350-8fb9-252e3e75554f	GET	http://localhost:3000	/journals/all

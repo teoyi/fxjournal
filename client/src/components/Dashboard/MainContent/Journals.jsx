@@ -144,6 +144,7 @@ const Journals = () => {
                     </div> */}
                     <div className='p-3'>
                         <h1 className='font-semibold text-xl'>New Journal:</h1>
+                        <p className={errMsg ? "block text-sm" : "hidden"}>{errMsg}</p>
                     </div>
                     <form className="flex flex-col justify-start items-center" onSubmit={handleSubmit}> 
                         {/* <label htmlFor="newJournal">
