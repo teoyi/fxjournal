@@ -50,10 +50,36 @@ const SideNav = () => {
             if (response) {
                 // console.log(response);
                 setShowPopout(false);
-                console.log(journals);
-                const currentList = journals; 
-                currentList.push(newJournal);
-                setJournals(currentList);
+                let isMounted = true;
+                const controller = new AbortController();
+
+                const getJournals = async () => {
+                    try {
+                        const response = await axiosPrivate.get(ALL_JOURNAL_URL, {
+                            signal: controller.signal
+                        });
+
+                        const data = response?.data; 
+                        const list = []; 
+
+                        if (data.length > 0) {
+                            data.forEach(journalObj => { 
+                                list.push(journalObj.journalName);
+                            });
+                        };
+                        isMounted && setJournals(list);
+                    } catch (err) {
+                        console.error(err);
+                        navigate('/login', { state: { from: location }, replace: true });
+                    }
+                }
+
+                getJournals();
+
+                return () => {
+                    isMounted = false;
+                    controller.abort();
+                }
             };
         } catch (error) {
             if (!error?.response) {
@@ -121,7 +147,7 @@ const SideNav = () => {
                 <form className="flex flex-col justify-center items-center" onSubmit={handleSubmit}> 
                 <input 
                     type="text" 
-                    id="username"
+                    id="newJournal"
                     ref={newJournalRef}
                     autoComplete="off"
                     onChange={(e) => setNewJournal(e.target.value)}
