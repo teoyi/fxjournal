@@ -2,9 +2,26 @@ const JournalEntry = require('../model/JournalsEntry');
 const Users = require('../model/Users');
 const Journals = require('../model/Journals');
 
+
+const accessID = (username, journalName) => {
+    const userExist = await Users.findOne({ username: req.body.username });
+    if (!userExist) {
+        return res.status(404).json({ 'message': `${req.body.username} does not exist. Please contact administrator.` });
+    }
+    const userId = userExist._id.toString();
+
+    const journalExist = await Journals.findOne({ journalName: req.body.journalName, userId: userId })
+    if (!journalExist) {
+        return res.status(404).json({ 'message': `${req.body.journalName} does not exist. Please contact administrator.` })
+    }
+    const journalId = journalExist._id.toString();
+
+    return [userId, journalId]
+}
+
 const getAllJournalEntries = async (req, res) => {
     // use journal and user id to find the relevant journal entries
-    const journalEntries = await JournalEntries.find();
+    const journalEntries = await JournalEntry.find();
     if (!journalEntries) {
         return res.status(204).json({ 'message': 'No entries found in the db' });
     }
@@ -18,17 +35,9 @@ const createEntry = async (req, res) => {
     }
 
     // find user and journal within the db 
-    const userExist = await Users.findOne({ username: req.body.username });
-    if (!userExist) {
-        return res.status(404).json({ 'message': `${req.body.username} does not exist. Please contact administrator.` });
-    }
-    const userId = userExist._id.toString();
+    const userId = accessID(req.body.username, req.body.journalName)[0];
+    const journalId = accessID(req.body.username, req.body.journalName)[1];
 
-    const journalExist = await Journals.findOne({ journalName: req.body.journalName, userId: userId })
-    if (!journalExist) {
-        return res.status(404).json({ 'message': `${req.body.journalName} does not exist. Please contact administrator.` })
-    }
-    const journalId = journalExist._id.toString();
 
     try {
         const newEntry = await JournalEntry.create({
@@ -57,17 +66,8 @@ const updateEntry = async (req, res) => {
     };
 
     // find user and journal within the db 
-    const userExist = await Users.findOne({ username: req.body.username });
-    if (!userExist) {
-        return res.status(404).json({ 'message': `${req.body.username} does not exist. Please contact administrator.` });
-    }
-    const userId = userExist._id.toString();
-
-    const journalExist = await Journals.findOne({ journalName: req.body.journalName, userId: userId })
-    if (!journalExist) {
-        return res.status(404).json({ 'message': `${req.body.journalName} does not exist. Please contact administrator.` })
-    }
-    const journalId = journalExist._id.toString();
+    const userId = accessID(req.body.username, req.body.journalName)[0];
+    const journalId = accessID(req.body.username, req.body.journalName)[1];
 
     // find relevant entry with title and ids
     const entryExist = await JournalEntry.findOne({ entryTitle: req.body.entryTitle, journalId: journalId, userId: userId });
@@ -97,20 +97,11 @@ const getAllEntriesByUserAndJournal = async (req, res) => {
     }
 
     // find user and journal within the db 
-    const userExist = await Users.findOne({ username: req.body.username });
-    if (!userExist) {
-        return res.status(404).json({ 'message': `${req.body.username} does not exist. Please contact administrator.` });
-    }
-    const userId = userExist._id.toString();
-
-    const journalExist = await Journals.findOne({ journalName: req.body.journalName, userId: userId })
-    if (!journalExist) {
-        return res.status(404).json({ 'message': `${req.body.journalName} does not exist. Please contact administrator.` })
-    }
-    const journalId = journalExist._id.toString();
+    const userId = accessID(req.body.username, req.body.journalName)[0];
+    const journalId = accessID(req.body.username, req.body.journalName)[1];
 
     // use journal and user id to find the relevant journal entries
-    const journalEntries = await JournalEntries.find({ journalId: journalId, userId: userId });
+    const journalEntries = await JournalEntry.find({ journalId: journalId, userId: userId });
     if (!journalEntries) {
         return res.status(204).json({ 'message': 'No entries found in the journal' });
     }
@@ -124,17 +115,8 @@ const getEntryByParam = async (req, res) => {
     };
 
     // find user and journal within the db 
-    const userExist = await Users.findOne({ username: req.body.username });
-    if (!userExist) {
-        return res.status(404).json({ 'message': `${req.body.username} does not exist. Please contact administrator.` });
-    }
-    const userId = userExist._id.toString();
-
-    const journalExist = await Journals.findOne({ journalName: req.body.journalName, userId: userId })
-    if (!journalExist) {
-        return res.status(404).json({ 'message': `${req.body.journalName} does not exist. Please contact administrator.` })
-    }
-    const journalId = journalExist._id.toString();
+    const userId = accessID(req.body.username, req.body.journalName)[0];
+    const journalId = accessID(req.body.username, req.body.journalName)[1];
 
     // find relevant entry with title and ids
     const result = await JournalEntry.findOne({ entryTitle: req.body.entryTitle, journalId: journalId, userId: userId });
@@ -152,17 +134,8 @@ const deleteJournalEntry = async (req, res) => {
     }; // if entry id and or userId is missing
 
     // find user and journal within the db 
-    const userExist = await Users.findOne({ username: req.body.username });
-    if (!userExist) {
-        return res.status(404).json({ 'message': `${req.body.username} does not exist. Please contact administrator.` });
-    }
-    const userId = userExist._id.toString();
-
-    const journalExist = await Journals.findOne({ journalName: req.body.journalName, userId: userId })
-    if (!journalExist) {
-        return res.status(404).json({ 'message': `${req.body.journalName} does not exist. Please contact administrator.` })
-    }
-    const journalId = journalExist._id.toString();
+    const userId = accessID(req.body.username, req.body.journalName)[0];
+    const journalId = accessID(req.body.username, req.body.journalName)[1];
 
     const journalEntry = await JournalEntry.findOne({ journalId: journalId, userId: userId, entryTitle: req.body.entryTitle }).exec(); // find an entry that matches both entry id and user id 
     const entryId = journalEntry._id.toString();
