@@ -4,15 +4,15 @@ const Journals = require('../model/Journals');
 
 
 const accessID = (username, journalName) => {
-    const userExist = await Users.findOne({ username: req.body.username });
+    const userExist = await Users.findOne({ username: username });
     if (!userExist) {
-        return res.status(404).json({ 'message': `${req.body.username} does not exist. Please contact administrator.` });
+        return res.status(404).json({ 'message': `${username} does not exist. Please contact administrator.` });
     }
     const userId = userExist._id.toString();
 
-    const journalExist = await Journals.findOne({ journalName: req.body.journalName, userId: userId })
+    const journalExist = await Journals.findOne({ journalName: journalName, userId: userId })
     if (!journalExist) {
-        return res.status(404).json({ 'message': `${req.body.journalName} does not exist. Please contact administrator.` })
+        return res.status(404).json({ 'message': `${journalName} does not exist. Please contact administrator.` })
     }
     const journalId = journalExist._id.toString();
 
