@@ -1,18 +1,40 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema; 
+const Schema = mongoose.Schema;
 
 const journalEntrySchema = new Schema({
     userId: {
-        type: String, 
+        type: String,
         required: true
     },
-    journalName: {
+    journalId: {
+        type: String,
+        required: true
+    },
+    entryTitle: {
         type: String,
         required: true
     },
     journalContent: {
-        type: String, 
-        required: true
+        asset: {
+            type: String,
+            required: true
+        },
+        positionSize: {
+            type: Number,
+            required: true
+        },
+        side: {
+            type: String,
+            required: true
+        },
+        risk: {
+            type: Number,
+            required: true
+        },
+        reward: {
+            type: Number,
+            required: true
+        }
     }
 }, { timestamps: true });
 

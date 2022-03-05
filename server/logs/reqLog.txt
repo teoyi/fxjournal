@@ -3582,3 +3582,14 @@
 20220303	16:57:31	73e6a805-fed8-4a37-b4b4-7567a4424ff1	GET	http://localhost:3000	/journals/all
 20220303	16:57:31	b379e315-996b-44c0-9f2b-30c38c43eac8	GET	http://localhost:3000	/refresh
 20220303	16:57:31	e151d923-649d-4350-8fb9-252e3e75554f	GET	http://localhost:3000	/journals/all
+20220305	12:48:52	6afef72e-3705-49ef-ac8f-cce5da3464c4	GET	http://localhost:3000	/refresh
+20220305	12:48:56	4d469b4c-e2f2-41df-a024-182aa455497c	OPTIONS	http://localhost:3000	/auth
+20220305	12:48:56	c82431cc-dd64-4c4f-aa35-7646144ce3bb	POST	http://localhost:3000	/auth
+20220305	12:48:56	0bb72f78-3bd8-46b4-98d8-17ec9a58a9d2	OPTIONS	http://localhost:3000	/journals/all
+20220305	12:48:56	0d28da8e-4d7f-4b5a-9e72-3dfd8f60251c	OPTIONS	http://localhost:3000	/journals/all
+20220305	12:48:56	82695402-984d-4a7a-a942-bc25df7e6a2b	GET	http://localhost:3000	/journals/all
+20220305	12:48:56	d64d6f60-f290-467b-a41b-1170e18f3f03	GET	http://localhost:3000	/journals/all
+20220305	12:49:32	9d786f57-9675-401a-8395-e2f6d4bd0b8f	OPTIONS	http://localhost:3000	/journals/all
+20220305	12:49:32	367abec6-ea83-44ca-ba04-5bb39fb2d0e4	GET	http://localhost:3000	/journals/all
+20220305	13:00:38	d356ad18-f92c-46ac-84e1-46d3dec5b89b	OPTIONS	http://localhost:3000	/journals/all
+20220305	13:00:38	77af2bb6-b90a-4bc0-a87b-2af5ee0d57ca	GET	http://localhost:3000	/journals/all
