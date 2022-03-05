@@ -79,11 +79,11 @@ const updateEntry = async (req, res) => {
     const thisEntry = entryExist;
 
     if (req.body?.journalContent) {
-        thisEntry.journalContent.asset = req.body.journalContent.asset;
-        thisEntry.journalContent.positionSize = req.body.journalContent.positionSize;
-        thisEntry.journalContent.side = req.body.journalContent.side;
-        thisEntry.journalContent.risk = req.body.journalContent.risk;
-        thisEntry.journalContent.reward = req.body.journalContent.reward;
+        thisEntry.journalContent.asset = req.body.journalContent.asset ? req.body.journalContent.asset : thisEntry.journalContent.asset;
+        thisEntry.journalContent.positionSize = req.body.journalContent.positionSize ? req.body.journalContent.positionSize : thisEntry.journalContent.asset;
+        thisEntry.journalContent.side = req.body.journalContent.side ? req.body.journalContent.side : thisEntry.journalContent.side;
+        thisEntry.journalContent.risk = req.body.journalContent.risk ? req.body.journalContent.risk : thisEntry.journalContent.risk;
+        thisEntry.journalContent.reward = req.body.journalContent.reward ? req.body.journalContent.reward : thisEntry.journalContent.reward;
     };
 
     const result = await thisEntry.save();

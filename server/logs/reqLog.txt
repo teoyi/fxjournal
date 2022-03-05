@@ -3593,3 +3593,5 @@
 20220305	12:49:32	367abec6-ea83-44ca-ba04-5bb39fb2d0e4	GET	http://localhost:3000	/journals/all
 20220305	13:00:38	d356ad18-f92c-46ac-84e1-46d3dec5b89b	OPTIONS	http://localhost:3000	/journals/all
 20220305	13:00:38	77af2bb6-b90a-4bc0-a87b-2af5ee0d57ca	GET	http://localhost:3000	/journals/all
+20220305	17:59:49	0021d10d-4777-4b74-9565-8ec4ed6b47e4	OPTIONS	http://localhost:3000	/journals/all
+20220305	17:59:49	0087eede-bc07-42ba-b291-1e0ada508945	GET	http://localhost:3000	/journals/all
