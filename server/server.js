@@ -1,11 +1,11 @@
 console.log("Server is running");
 
 // environmental imports 
-require('dotenv').config(); 
+require('dotenv').config();
 
 // dependencies imports 
 const express = require('express');
-const app = express(); 
+const app = express();
 const path = require('path');
 const cors = require('cors');
 const mongoose = require('mongoose');
@@ -13,15 +13,15 @@ const cookieParser = require('cookie-parser');
 
 // custom imports 
 const corsOptions = require('./config/corsOptions'); // provides allowedOrigins for connections 
-const { logger } = require('./middleware/logEvents'); 
+const { logger } = require('./middleware/logEvents');
 const errorHandler = require('./middleware/errorHandler');
-const verifyJWT = require('./middleware/verifyJWT'); 
+const verifyJWT = require('./middleware/verifyJWT');
 const credentials = require('./middleware/credentials'); //add access credentials when accessing from allowedOrigins 
 const connectDB = require('./config/dbConn'); //mongoose db connection 
-const PORT = process.env.PORT || 3500; 
+const PORT = process.env.PORT || 3500;
 
 // establish connection to mongoDB 
-connectDB(); 
+connectDB();
 
 // necessary application settings 
 app.use(logger); // custom logging middleware 
@@ -42,6 +42,7 @@ app.use('/logout', require('./routes/logout'));
 app.use(verifyJWT);
 app.use('/users', require('./routes/api/users'));
 app.use('/journals', require('./routes/api/journals'));
+app.use('/journalsEntry', require('./routes/api/journalsEntry'));
 
 // error handling
 app.use(errorHandler);

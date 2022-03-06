@@ -3,7 +3,7 @@ const Users = require('../model/Users');
 const Journals = require('../model/Journals');
 
 
-const accessID = (username, journalName) => {
+const accessID = async (username, journalName) => {
     const userExist = await Users.findOne({ username: username });
     if (!userExist) {
         return res.status(404).json({ 'message': `${username} does not exist. Please contact administrator.` });
@@ -35,8 +35,18 @@ const createEntry = async (req, res) => {
     }
 
     // find user and journal within the db 
-    const userId = accessID(req.body.username, req.body.journalName)[0];
-    const journalId = accessID(req.body.username, req.body.journalName)[1];
+    const userExist = await Users.findOne({ username: req.body.username });
+    if (!userExist) {
+        return res.status(404).json({ 'message': `${req.body.username} does not exist. Please contact administrator.` });
+    }
+    const userId = userExist._id.toString();
+    console.log(userId);
+
+    const journalExist = await Journals.findOne({ journalName: req.body.journalName, userId: userId });
+    if (!journalExist) {
+        return res.status(404).json({ 'message': `${req.body.journalName} does not exist. Please contact administrator.` })
+    }
+    const journalId = journalExist._id.toString();
 
 
     try {
@@ -66,8 +76,18 @@ const updateEntry = async (req, res) => {
     };
 
     // find user and journal within the db 
-    const userId = accessID(req.body.username, req.body.journalName)[0];
-    const journalId = accessID(req.body.username, req.body.journalName)[1];
+    const userExist = await Users.findOne({ username: req.body.username });
+    if (!userExist) {
+        return res.status(404).json({ 'message': `${req.body.username} does not exist. Please contact administrator.` });
+    }
+    const userId = userExist._id.toString();
+    console.log(userId);
+
+    const journalExist = await Journals.findOne({ journalName: req.body.journalName, userId: userId });
+    if (!journalExist) {
+        return res.status(404).json({ 'message': `${req.body.journalName} does not exist. Please contact administrator.` })
+    }
+    const journalId = journalExist._id.toString();
 
     // find relevant entry with title and ids
     const entryExist = await JournalEntry.findOne({ entryTitle: req.body.entryTitle, journalId: journalId, userId: userId });
@@ -109,7 +129,7 @@ const getAllEntriesByUserAndJournal = async (req, res) => {
     res.json(journalEntries);
 };
 
-const getEntryByParam = async (req, res) => {
+const getEntryByEntry = async (req, res) => {
     if (!req?.body?.entryTitle || !req?.body?.username || !req?.body?.journalName) {
         return res.status(400).json({ 'message': 'Entry title, Username, and Journal name is required' })
     };
@@ -128,7 +148,7 @@ const getEntryByParam = async (req, res) => {
     res.json(result);
 };
 
-const deleteJournalEntry = async (req, res) => {
+const deleteEntry = async (req, res) => {
     if (!req?.body?.entryTitle || !req?.body?.journalName || !req?.body?.username) {
         return res.status(400).json({ 'message': 'Entry title, Journal Name, and Username is required' })
     }; // if entry id and or userId is missing
@@ -149,6 +169,6 @@ module.exports = {
     createEntry,
     updateEntry,
     getAllEntriesByUserAndJournal,
-    getEntryByEntryID,
-    deleteJournalEntry
+    getEntryByEntry,
+    deleteEntry
 }
