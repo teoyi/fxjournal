@@ -10,7 +10,7 @@ const Register = () => {
     const userRef = useRef();
 
     const [username, setUsername] = useState('');
-    const [validName, setValidName] = useState(false); 
+    const [validName, setValidName] = useState(false);
     const [userFocus, setUserFocus] = useState(false);
 
     const [password, setPassword] = useState('');
@@ -24,7 +24,7 @@ const Register = () => {
     const [errMsg, setErrMsg] = useState('');
     const [success, setSuccess] = useState(false);
 
-      // bg image 
+    // bg image 
     const one = "w-4/5 absolute bg-bw1-image bg-cover blur-sm h-full z-0"
     const two = "w-4/5 absolute bg-bw2-image bg-cover blur-sm h-full z-0"
     const three = "w-4/5 absolute bg-bw3-image bg-cover blur-sm h-full z-0"
@@ -36,11 +36,11 @@ const Register = () => {
         const randomNum = Math.floor(Math.random() * 4) + 1;
         if (randomNum === 2) {
             setBgImg('two');
-          } else if (randomNum === 3) {
+        } else if (randomNum === 3) {
             setBgImg('three');
-          } else if (randomNum === 4) {
+        } else if (randomNum === 4) {
             setBgImg('four');
-          }
+        }
     }, []);
 
     useEffect(() => {
@@ -54,11 +54,11 @@ const Register = () => {
     }, [password, matchPassword]);
 
     const handleSubmit = async (e) => {
-        e.preventDefault(); 
+        e.preventDefault();
 
         // to counter button being enabled through JS 
-        const v1 = USER_REGEX.test(username); 
-        const v2 = PWD_REGEX.test(password); 
+        const v1 = USER_REGEX.test(username);
+        const v2 = PWD_REGEX.test(password);
         if (!v1 || !v2) {
             setErrMsg("Invalid Entry");
             return;
@@ -88,82 +88,84 @@ const Register = () => {
                 setErrMsg('No Server Response');
             } else if (error.response?.status === 409) {
                 setErrMsg('Username Taken');
-            } else { 
+            } else {
                 setErrMsg('Registration Failed');
-            }; 
+            };
         };
     };
-    
+
     return (
         <div className="flex flex-row justify-start items-center h-screen bg-black  text-banana">
-            <div className={bgImg === 'two' ? two : bgImg === 'three' ? three : bgImg === 'four' ? four : one }></div>
-            <div className="w-4/5 flex flex-col justify-center items-center h-full z-10">
-                <h1 className="font-goshbe text-auth-lg -mt-6r leading-auth-lh">fxjournal</h1>
+            <div className={bgImg === 'two' ? two : bgImg === 'three' ? three : bgImg === 'four' ? four : one}></div>
+            <div className="w-2/3 flex flex-col justify-center items-center h-full z-10">
+                <h1 className="font-goshbe lg:text-auth-lg xl:text-auth-xl -mt-6r lg:leading-auth-lg xl:leading-auth-xl">fxjournal</h1>
                 <p className="font-semibold text-xl">Your one stop shop to review your trades</p>
             </div>
-            <div className="flex flex-col h-full w-1/5 justify-center items-center bg-black z-10">
+            <div className="flex flex-col h-full w-1/3 justify-center items-center rounded-l-3xl bg-black z-10">
                 <p>{errMsg}</p>
-                <h1 className="uppercase">register</h1>
-                <form className="flex flex-col" onSubmit={handleSubmit} autoComplete="off">
-                    
+                <h1 className="uppercase font-semibold text-3xl mb-5">register</h1>
+                <form className="flex flex-col w-[20vw]" onSubmit={handleSubmit} autoComplete="off">
                     <label htmlFor="username">
-                        Username: 
+                        Username:
                     </label>
-                    <input 
-                        type="text" 
-                        id="username" 
-                        autoComplete="off" 
+                    <input
+                        type="text"
+                        id="username"
+                        autoComplete="off"
                         ref={userRef}
                         onChange={(e) => setUsername(e.target.value)}
+                        className='bg-transparent border-b-2 border-banana focus:outline-0 mb-5'
                         value={username}
                         required
                         onFocus={() => setUserFocus(true)}
-                        onBlur={() => setUserFocus(false)} 
+                        onBlur={() => setUserFocus(false)}
                     />
-                    <p className={userFocus && username && !validName ? "block" : "hidden" }>
+                    {/* <p className={userFocus && username && !validName ? "block text-xs" : "hidden"}>
                         min. 4 characters, beginning with a letter <br />
                         Letters, numbers, underscores, and hyphens are allowed.
-                    </p>
+                    </p> */}
 
                     <label htmlFor="password">
-                        Password: 
+                        Password:
                     </label>
-                    <input 
-                        type="password" 
-                        id="password" 
+                    <input
+                        type="password"
+                        id="password"
                         onChange={(e) => setPassword(e.target.value)}
+                        className={`bg-transparent border-b-2 border-banana focus:outline-0 ${passwordFocus && !validPassword ? "mb-0" : "mb-5"}`}
                         value={password}
                         required
                         onFocus={() => setPasswordFocus(true)}
-                        onBlur={() => setPasswordFocus(false)} 
+                        onBlur={() => setPasswordFocus(false)}
                     />
-                    <p className={passwordFocus && !validPassword ? "block" : "hidden" }>
+                    <p className={passwordFocus && !validPassword ? "block text-xs mb-5" : "hidden"}>
                         min. 8 characters<br />
                         Must include upper and lowercase letters, a number and a special character.
                     </p>
 
                     <label htmlFor="confirm_password">
-                        Confirm Password: 
+                        Confirm Password:
                     </label>
-                    <input 
-                        type="password" 
-                        id="confirm_password" 
+                    <input
+                        type="password"
+                        id="confirm_password"
                         onChange={(e) => setMatchPassword(e.target.value)}
+                        className={`bg-transparent border-b-2 border-banana focus:outline-0 ${matchFocus && !validMatch ? "mb-0" : "mb-5"}`}
                         value={matchPassword}
                         required
                         onFocus={() => setMatchFocus(true)}
-                        onBlur={() => setMatchFocus(false)} 
+                        onBlur={() => setMatchFocus(false)}
                     />
-                    <p className={matchFocus && !validMatch ? "block" : "hidden" }>
+                    <p className={matchFocus && !validMatch ? "block text-xs mb-5" : "hidden"}>
                         Passwords do not match
                     </p>
-                    <div> 
+                    <div className='mb-5'>
                         Already have an account? <Link className="decoration-solid underline" to="/login">Login</Link>
                     </div>
-                    <button disabled={!validName || !validPassword || !validMatch ? true : false}>Sign up</button>
+                    <button className='bg-banana text-black px-10 py-2 rounded-full' disabled={!validName || !validPassword || !validMatch ? true : false}>Sign up</button>
                 </form>
             </div>
-      </div>
+        </div>
     )
 }
 

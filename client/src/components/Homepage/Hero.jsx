@@ -2,7 +2,7 @@ import React from 'react';
 // import hero from '../../asset/hero-removebg-preview.png';s
 
 const Hero = () => {
-  return (
+    return (
         <div className="hero-wrapper bg-hero-image h-hero-home bg-cover">
             <div className="hero bg-gradient-to-b from-black w-full h-hero-home flex flex-col justify-center items-center">
                 {/* <img src={hero} alt="hero logo" className="justify-center items-center object-none" /> */}

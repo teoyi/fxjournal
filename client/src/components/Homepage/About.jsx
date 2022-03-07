@@ -5,7 +5,7 @@ import Camera from '../../asset/large-icons/camera.png';
 import { Link } from 'react-router-dom';
 
 const About = () => {
-  return (
+    return (
         <div className="h-4/6 w-full flex flex-row items-center justify-center bg-black text-banana py-10" id="about">
             {/* probably three cards centered */}
             <div className="lg:max-w-screen-lg 2xl:max-w-screen-2xl w-full flex flex-row justify-center items-center">
@@ -47,7 +47,7 @@ const About = () => {
                         </div>
                     </div>
                     <div className="flex w-full lg:flex-row 2xl:flex-col lg:justify-start lg:items-center text-banana p-10">
-                        <img src={Camera} alt="book icon" className="w-[100px]"/>
+                        <img src={Camera} alt="book icon" className="w-[100px]" />
                         <div className="flex flex-col justify-start w-full items-start lg:ml-20p 2xl:ml-0 2xl:text-center">
                             <h1 className="my-3 text-xl text-center w-full font-semibold uppercase">Ongoing news</h1>
                             <p className="">No matter, if you are a news-centric trader or not, having current information at your fingertips will give you an edge by allowing you to stay in the know of when and what high risk news are imminent.</p>
@@ -55,7 +55,7 @@ const About = () => {
                     </div>
                 </div>
             </div>
-            
+
         </div>
     );
 };
