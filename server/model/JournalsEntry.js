@@ -20,7 +20,7 @@ const journalEntrySchema = new Schema({
             required: true
         },
         positionSize: {
-            type: Number,
+            type: String,
             required: true
         },
         side: {
@@ -28,11 +28,11 @@ const journalEntrySchema = new Schema({
             required: true
         },
         risk: {
-            type: Number,
+            type: String,
             required: true
         },
         reward: {
-            type: Number,
+            type: String,
             required: true
         }
     }

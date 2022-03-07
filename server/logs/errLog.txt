@@ -19,3 +19,4 @@
 20220208	17:58:48	32840179-d60a-40b9-9d3b-d837cb5200fe	Error: Cannot set headers after they are sent to the client
 20220208	18:02:22	0d5f5b4e-b837-4a4d-ac77-802b63f7d7dc	Error: Cannot set headers after they are sent to the client
 20220208	18:02:38	52cabede-5bfc-4e9f-9178-890a65c58bd6	Error: Cannot set headers after they are sent to the client
+20220307	15:36:26	b01e4d4e-d046-4d7f-ae08-e41d446647d7	SyntaxError: Unexpected token } in JSON at position 207

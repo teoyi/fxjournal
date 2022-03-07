@@ -40,13 +40,17 @@ const createEntry = async (req, res) => {
         return res.status(404).json({ 'message': `${req.body.username} does not exist. Please contact administrator.` });
     }
     const userId = userExist._id.toString();
-    console.log(userId);
 
     const journalExist = await Journals.findOne({ journalName: req.body.journalName, userId: userId });
     if (!journalExist) {
         return res.status(404).json({ 'message': `${req.body.journalName} does not exist. Please contact administrator.` })
     }
     const journalId = journalExist._id.toString();
+
+    const entryExist = await JournalEntry.findOne({ journalId: journalId, userId: userId, entryTitle: req.body.entryTitle });
+    if (entryExist) {
+        return res.status(409).json({ 'message': `${req.body.entryTitle} already exists, please choose a different name` })
+    }
 
 
     try {
@@ -81,7 +85,6 @@ const updateEntry = async (req, res) => {
         return res.status(404).json({ 'message': `${req.body.username} does not exist. Please contact administrator.` });
     }
     const userId = userExist._id.toString();
-    console.log(userId);
 
     const journalExist = await Journals.findOne({ journalName: req.body.journalName, userId: userId });
     if (!journalExist) {
@@ -98,13 +101,13 @@ const updateEntry = async (req, res) => {
 
     const thisEntry = entryExist;
 
-    if (req.body?.journalContent) {
-        thisEntry.journalContent.asset = req.body.journalContent.asset ? req.body.journalContent.asset : thisEntry.journalContent.asset;
-        thisEntry.journalContent.positionSize = req.body.journalContent.positionSize ? req.body.journalContent.positionSize : thisEntry.journalContent.asset;
-        thisEntry.journalContent.side = req.body.journalContent.side ? req.body.journalContent.side : thisEntry.journalContent.side;
-        thisEntry.journalContent.risk = req.body.journalContent.risk ? req.body.journalContent.risk : thisEntry.journalContent.risk;
-        thisEntry.journalContent.reward = req.body.journalContent.reward ? req.body.journalContent.reward : thisEntry.journalContent.reward;
-    };
+    // note to self, ensure that values are a string on the front end when being sent. Or else value of 0 will return false rendering the optional queries below to default to false. 
+
+    thisEntry.journalContent.asset = req.body.journalContent.asset ? req.body.journalContent.asset : thisEntry.journalContent.asset;
+    thisEntry.journalContent.positionSize = req.body.journalContent.positionSize ? req.body.journalContent.positionSize : thisEntry.journalContent.positionSize;
+    thisEntry.journalContent.side = req.body.journalContent.side ? req.body.journalContent.side : thisEntry.journalContent.side;
+    thisEntry.journalContent.risk = req.body.journalContent.risk ? req.body.journalContent.risk : thisEntry.journalContent.risk;
+    thisEntry.journalContent.reward = req.body.journalContent.reward ? req.body.journalContent.reward : thisEntry.journalContent.reward;
 
     const result = await thisEntry.save();
 
@@ -117,11 +120,20 @@ const getAllEntriesByUserAndJournal = async (req, res) => {
     }
 
     // find user and journal within the db 
-    const userId = accessID(req.body.username, req.body.journalName)[0];
-    const journalId = accessID(req.body.username, req.body.journalName)[1];
+    const userExist = await Users.findOne({ username: req.body.username });
+    if (!userExist) {
+        return res.status(404).json({ 'message': `${req.body.username} does not exist. Please contact administrator.` });
+    };
+    const userId = userExist._id.toString();
+
+    const journalExist = await Journals.findOne({ journalName: req.body.journalName, userId: userId });
+    if (!journalExist) {
+        return res.status(404).json({ 'message': `${req.body.journalName} does not exist. Please contact administrator.` })
+    }
+    const journalId = journalExist._id.toString();
 
     // use journal and user id to find the relevant journal entries
-    const journalEntries = await JournalEntry.find({ journalId: journalId, userId: userId });
+    const journalEntries = await JournalEntry.find({ journalId: journalId, userId: userId, journalId: journalId });
     if (!journalEntries) {
         return res.status(204).json({ 'message': 'No entries found in the journal' });
     }
@@ -135,8 +147,17 @@ const getEntryByEntry = async (req, res) => {
     };
 
     // find user and journal within the db 
-    const userId = accessID(req.body.username, req.body.journalName)[0];
-    const journalId = accessID(req.body.username, req.body.journalName)[1];
+    const userExist = await Users.findOne({ username: req.body.username });
+    if (!userExist) {
+        return res.status(404).json({ 'message': `${req.body.username} does not exist. Please contact administrator.` });
+    };
+    const userId = userExist._id.toString();
+
+    const journalExist = await Journals.findOne({ journalName: req.body.journalName, userId: userId });
+    if (!journalExist) {
+        return res.status(404).json({ 'message': `${req.body.journalName} does not exist. Please contact administrator.` })
+    }
+    const journalId = journalExist._id.toString();
 
     // find relevant entry with title and ids
     const result = await JournalEntry.findOne({ entryTitle: req.body.entryTitle, journalId: journalId, userId: userId });
@@ -154,8 +175,17 @@ const deleteEntry = async (req, res) => {
     }; // if entry id and or userId is missing
 
     // find user and journal within the db 
-    const userId = accessID(req.body.username, req.body.journalName)[0];
-    const journalId = accessID(req.body.username, req.body.journalName)[1];
+    const userExist = await Users.findOne({ username: req.body.username });
+    if (!userExist) {
+        return res.status(404).json({ 'message': `${req.body.username} does not exist. Please contact administrator.` });
+    };
+    const userId = userExist._id.toString();
+
+    const journalExist = await Journals.findOne({ journalName: req.body.journalName, userId: userId });
+    if (!journalExist) {
+        return res.status(404).json({ 'message': `${req.body.journalName} does not exist. Please contact administrator.` })
+    }
+    const journalId = journalExist._id.toString();
 
     const journalEntry = await JournalEntry.findOne({ journalId: journalId, userId: userId, entryTitle: req.body.entryTitle }).exec(); // find an entry that matches both entry id and user id 
     const entryId = journalEntry._id.toString();
