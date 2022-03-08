@@ -11,7 +11,7 @@ const JournalsEntry = () => {
     const navigate = useNavigate();
     const location = useLocation();
 
-    let journalName = location.pathname.split("/").pop().replace('%20', ' ');
+    let journalName = location.pathname.split("/").pop().replaceAll('%20', ' ');
     let username = auth.username;
 
     useEffect(() => {
