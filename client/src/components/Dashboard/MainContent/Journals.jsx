@@ -66,12 +66,7 @@ const Journals = () => {
                 }
             );
             if (response) {
-                // console.log(response);
                 setAddJournalBlock(false);
-                // console.log(journals);
-                // const currentList = journals; 
-                // currentList.push(newJournal);
-                // setJournals(currentList);
                 let isMounted = true;
                 const controller = new AbortController();
 

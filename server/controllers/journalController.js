@@ -109,10 +109,24 @@ const getAllJournalsByParam = async (req, res) => {
     res.json(journals);
 }
 
+const getJournalNameById = async (req, res) => {
+    if (!req?.body?.id) {
+        return res.status(400).json({ 'message': 'Journal ID is required' });
+    };
+
+    const journalExist = await Journal.findOne({ _id: req.body.id });
+    if (!journalExist) {
+        return res.status(404).json({ 'message': 'Journal does not exist. Please contact administrator' });
+    }
+
+    res.json(journalExist.journalName);
+}
+
 module.exports = {
     createJournal,
     updateJournal,
     deleteJournal,
     getAllJournals,
     getAllJournalsByParam,
+    getJournalNameById,
 }

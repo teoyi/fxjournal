@@ -35,11 +35,8 @@ const MainContent = () => {
                 </button>
                 <button className='text-base'>{auth.username}</button>
             </div>
-            {currentLoc.pathname === "/dashboard/journals" ? (
+            {currentLoc.pathname === "/dashboard/journal" ? (
                 // create a journalling item here. Want to include strategy before journalling so essentially a book to house the pages 
-                <Journals />
-            ) : result ? (
-                // journal entries can be found here 
                 <JournalsEntry />
             ) : currentLoc.pathname === "/dashboard/news" ? (
                 // refactor news to come here + selection as tab drop down and news as fixed cards? 

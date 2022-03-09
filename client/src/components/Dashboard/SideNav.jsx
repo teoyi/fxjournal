@@ -167,7 +167,7 @@ const SideNav = () => {
                 <div className="flex flex-col justify-between h-full">
                     <div className="flex flex-col text-sm">
                         <Link className="my-5 flex flex-row items-center" to="/dashboard"><TiHome className="text-2xl mr-3 ml-5" />Dashboard</Link>
-                        <Link className="mb-2 flex flex-row items-center" to="/dashboard/journals" onClick={handleShowList}><IoIosJournal className="text-2xl mr-3 ml-5" />Trading Journal</Link>
+                        <Link className="mb-5 flex flex-row items-center" to="/dashboard/journal" onClick={handleShowList}><IoIosJournal className="text-2xl mr-3 ml-5" />Trading Journal</Link>
                         <Link className="mb-5 flex flex-row items-center" to="/dashboard/forex"><AiOutlineLineChart className="text-2xl mr-3 ml-5" />Charts</Link>
                         <Link className="mb-5 flex flex-row items-center" to="/dashboard/news"><IoNewspaperOutline className="text-2xl mr-3 ml-5" />News</Link>
                         {/* <div className={`${showList ? 'block' : 'hidden'} h-[150px] overflow-y-auto`}>

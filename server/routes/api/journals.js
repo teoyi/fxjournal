@@ -14,5 +14,7 @@ router.route('/updateJournal')
     .put(verifyRoles(ROLES_LIST.User), journalController.updateJournal)
 router.route('/deleteJournal')
     .delete(verifyRoles(ROLES_LIST.User), journalController.deleteJournal)
+router.route('/getName')
+    .post(verifyRoles(ROLES_LIST.User), journalController.getJournalNameById)
 
 module.exports = router
