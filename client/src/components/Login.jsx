@@ -1,12 +1,17 @@
 import React, { useRef, useState, useEffect } from 'react';
 import axios from '../api/axios';
+import useAxiosPrivate from '../hooks/useAxiosPrivate';
 import useAuth from '../hooks/useAuth';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { useCookies } from 'react-cookie';
 
 const LOGIN_URL = '/auth';
+const ALL_JOURNAL_URL = 'journals/all';
 
 const Login = () => {
+  const [cookies, setCookie] = useCookies(['currentJournal']);
   const { setAuth, persist, setPersist } = useAuth();
+  const axiosPrivate = useAxiosPrivate();
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -59,6 +64,17 @@ const Login = () => {
       const roles = response?.data?.roles;
 
       setAuth({ username, password, roles, accessToken });
+
+      const journalResponse = await axiosPrivate.post(
+        ALL_JOURNAL_URL,
+        JSON.stringify({ username }),
+        {
+          headers: { 'Content-Type': 'application/json' },
+          withCredentials: true
+        }
+      );
+
+      setCookie('currentJournal', journalResponse.data[0]._id, { path: '/' });
       setUsername('');
       setPassword('');
       navigate(from, { replace: true });

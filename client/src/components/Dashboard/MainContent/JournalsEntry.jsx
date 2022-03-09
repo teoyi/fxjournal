@@ -60,7 +60,7 @@ const JournalsEntry = () => {
         <section className='w-full px-5 '>
             <div className='w-full flex flex-row justify-between items-center px-1 border-b border-banana'>
                 <div className='text-xl'>{journalName}</div>
-                <div>Last Edited: &lt;date&gt;</div>
+                {/* <div>Last Edited: &lt;date&gt;</div> */}
             </div>
             <div className='w-full flex flex-row items center p-5'>
                 <div className="mr-5 flex flex-col w-4/5 bg-banana text-black rounded-2xl p-5">

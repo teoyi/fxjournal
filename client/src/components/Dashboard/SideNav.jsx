@@ -140,7 +140,7 @@ const SideNav = () => {
 
     return (
         <>
-            <div className={`w-full h-screen absolute justify-center items-center ${showPopout ? 'flex' : 'hidden'}`}>
+            {/* <div className={`w-full h-screen absolute justify-center items-center ${showPopout ? 'flex' : 'hidden'}`}>
                 <div className='h-40 w-96 absolute bg-banana text-black z-20 rounded-3xl opacity-100 p-5 flex flex-col justify-between'>
                     <h1 className='text-xl font-semibold'>Create new journal</h1>
                     <p className={errMsg ? "block text-sm" : "hidden"}>{errMsg}</p>
@@ -159,7 +159,7 @@ const SideNav = () => {
                     </form>
                 </div>
                 <div className='w-full h-screen absolute z-10 opacity-50 bg-black flex justify-center items-center'></div>
-            </div>
+            </div> */}
             <div className="w-1/6 h-screen font-semibold flex flex-col justify-start bg-banana text-black">
                 <div className="w-full text-center">
                     <Link to="/dashboard" className="font-goshbe text-dash-3">fxjournal</Link>
@@ -167,19 +167,17 @@ const SideNav = () => {
                 <div className="flex flex-col justify-between h-full">
                     <div className="flex flex-col text-sm">
                         <Link className="my-5 flex flex-row items-center" to="/dashboard"><TiHome className="text-2xl mr-3 ml-5" />Dashboard</Link>
+                        <Link className="mb-2 flex flex-row items-center" to="/dashboard/journals" onClick={handleShowList}><IoIosJournal className="text-2xl mr-3 ml-5" />Trading Journal</Link>
                         <Link className="mb-5 flex flex-row items-center" to="/dashboard/forex"><AiOutlineLineChart className="text-2xl mr-3 ml-5" />Charts</Link>
                         <Link className="mb-5 flex flex-row items-center" to="/dashboard/news"><IoNewspaperOutline className="text-2xl mr-3 ml-5" />News</Link>
-                        <Link className="mb-2 flex flex-row items-center" to="/dashboard/journals" onClick={handleShowList}><IoIosJournal className="text-2xl mr-3 ml-5" />Trading Journal</Link>
-                        <div className={`${showList ? 'block' : 'hidden'} h-[150px] overflow-y-auto`}>
+                        {/* <div className={`${showList ? 'block' : 'hidden'} h-[150px] overflow-y-auto`}>
                             <div className={`w-full flex flex-col transition-all`}>
                                 {journals.map((title) => (
                                     <Link className='ml-12 mr-5 mb-2 text-sm whitespace-nowrap text-ellipsis overflow-hidden border-b border-black' to={`/dashboard/journals/${title}`} key={title}>{title}</Link>
                                 ))}
                                 <button onClick={handlePopout}>+ New Journal</button>
                             </div>
-                        </div>
-
-
+                        </div> */}
                     </div>
                     <div className="flex flex-col">
                         <Link className="mb-5 flex flex-row items-center" to="/dashboard/settings"><RiSettings5Fill className="text-2xl mr-3 ml-8" />Settings</Link>
