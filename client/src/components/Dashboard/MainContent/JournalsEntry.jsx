@@ -16,7 +16,6 @@ const JournalsEntry = () => {
     const location = useLocation();
     const currentJournalId = cookies.currentJournal;
 
-
     // setJournalName(location.pathname.split("/").pop().replaceAll('%20', ' '));
     let username = auth.username;
 
