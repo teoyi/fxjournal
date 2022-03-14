@@ -7,13 +7,16 @@ import SideNav from './SideNav';
 import MainContent from './MainContent';
 
 const Dashboard = () => {
-    const { auth } = useAuth(); 
-    const refresh = useRefreshToken();
-    
-    return (
-    <div className="bg-banana text-banana flex flex-row">
+  const { auth } = useAuth();
+  const refresh = useRefreshToken();
+
+  return (
+    <div className="bg-black31 text-banana/[.87] flex flex-row">
       <SideNav />
-      <MainContent />
+      <div className='bg-black31 rounded-l-3xl w-5/6'>
+        <MainContent />
+      </div>
+
     </div>
   )
 }

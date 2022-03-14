@@ -57,29 +57,29 @@ const DashboardHome = () => {
   return (
     <div className="flex flex-col overflow-y-auto py-3 px-5">
       <div className="flex flex-row h-[350px] w-full p-5 ">
-        <div className='w-2/5 p-5 mr-5 bg-banana text-black rounded-3xl font-semibold text-lg'>ACCOUNT STATS</div>
-        <div className='w-3/5 bg-banana text-black rounded-3xl p-5 font-semibold text-lg'>ACCOUNT GRAPH</div>
+        <div className='w-2/5 p-5 mr-5 bg-black46 text-eee rounded-3xl font-semibold text-lg'>ACCOUNT STATS</div>
+        <div className='w-3/5 bg-black46 text-eee rounded-3xl p-5 font-semibold text-lg'>ACCOUNT GRAPH</div>
       </div>
       <div className='w-full flex flex-row items-center  justify-between p-5 h-[230px]'>
-        <div className='w-1/4 border-2 border-banana bg-banana text-black rounded-2xl p-5 h-full mr-3'>
+        <div className='w-1/4 bg-black46 text-eee rounded-2xl p-5 h-full mr-3'>
           <h1 className='text-lg font-semibold'>Profitability</h1>
           <div className='text-3xl text-center h-journal-percent flex justify-center items-center'>64%</div>
         </div>
-        <div className='w-1/4 border-2 border-banana bg-banana text-black rounded-2xl p-5 h-full mr-3'>
+        <div className='w-1/4 bg-black46 text-eee rounded-2xl p-5 h-full mr-3'>
           <h1 className='text-lg font-semibold'>Position Summary</h1>
           <div className='text-3xl text-center h-journal-percent flex justify-center items-center'>64%</div>
         </div>
-        <div className='w-1/4 border-2 border-banana bg-banana text-black rounded-2xl p-5 h-full  mr-3'>
+        <div className='w-1/4 bg-black46 text-eee rounded-2xl p-5 h-full  mr-3'>
           <h1 className='text-lg font-semibold'>Currency Summary</h1>
           <div className='text-3xl text-center h-journal-percent flex justify-center items-center'>64%</div>
         </div>
-        <div className='w-1/4 border-2 border-banana bg-banana text-black rounded-2xl p-5 h-full mr-3'>
+        <div className='w-1/4 bg-black46 text-eee rounded-2xl p-5 h-full mr-3'>
           <h1 className='text-lg font-semibold'>Account Balance</h1>
           <div className='text-3xl text-center h-journal-percent flex justify-center items-center'>${journalBalance}</div>
         </div>
-        {/* <button className="bg-banana text-black px-3 py-1 rounded-full">+ Entry</button> */}
+        {/* <button className="bg-black46 text-eee px-3 py-1 rounded-full">+ Entry</button> */}
       </div>
-      <div className="h-[200px] rounded-2xl bg-banana text-black m-5">
+      <div className="h-[200px] rounded-2xl bg-black46 text-eee m-5">
         <div className='p-5 font-semibold text-lg'>
           Recent journal entries
         </div>

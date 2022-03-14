@@ -85,8 +85,8 @@ const MainContent = () => {
     }
 
     return (
-        <div className="w-5/6 h-screen rounded-l-3xl bg-black overflow-y-auto">
-            <div className="w-full flex justify-end p-5">
+        <div className="w-full h-screen overflow-y-auto">
+            <div className="w-full flex justify-end p-5 text-banana">
                 <div>
                     <button onClick={handleShowOptions} className='mr-5 flex flex-row justify-center items-center'>
                         <VscChromeRestore className='text-xl mr-2' />

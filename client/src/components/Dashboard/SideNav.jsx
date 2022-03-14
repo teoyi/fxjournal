@@ -160,9 +160,9 @@ const SideNav = () => {
                 </div>
                 <div className='w-full h-screen absolute z-10 opacity-50 bg-black flex justify-center items-center'></div>
             </div> */}
-            <div className="w-1/6 h-screen font-semibold flex flex-col justify-start bg-banana text-black">
+            <div className="w-1/6 h-screen font-semibold flex flex-col justify-start text-banana">
                 <div className="w-full text-center">
-                    <Link to="/dashboard" className="font-goshbe text-dash-3">fxjournal</Link>
+                    <Link to="/dashboard" className="font-goshbe text-dash-3 text-banana">fxjournal</Link>
                 </div>
                 <div className="flex flex-col justify-between h-full">
                     <div className="flex flex-col text-sm">
@@ -180,8 +180,8 @@ const SideNav = () => {
                         </div> */}
                     </div>
                     <div className="flex flex-col">
-                        <Link className="mb-5 flex flex-row items-center" to="/dashboard/settings"><RiSettings5Fill className="text-2xl mr-3 ml-8" />Settings</Link>
-                        <a href="#" className="font-semibold mb-5 flex flex-row items-center" onClick={logoutHandler}><RiLogoutBoxRLine className="text-2xl mr-3 ml-8" />Logout</a>
+                        <Link className="mb-5 flex flex-row items-center" to="/dashboard/settings"><RiSettings5Fill className="text-2xl mr-3 ml-5" />Settings</Link>
+                        <a href="#" className="font-semibold mb-5 flex flex-row items-center" onClick={logoutHandler}><RiLogoutBoxRLine className="text-2xl mr-3 ml-5" />Logout</a>
                     </div>
                 </div>
             </div>
