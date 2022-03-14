@@ -86,11 +86,11 @@ const MainContent = () => {
 
     return (
         <div className="w-full h-screen overflow-y-auto">
-            <div className="w-full flex justify-end p-5 text-banana">
+            <div className="w-full flex justify-end p-5 text-white/[0.87]">
                 <div>
                     <button onClick={handleShowOptions} className='mr-5 flex flex-row justify-center items-center'>
                         <VscChromeRestore className='text-xl mr-2' />
-                        <span className='text-base bg-banana rounded-full max-w-[172px] whitespace-nowrap overflow-hidden text-ellipsis text-black px-3'>{journalNameDisplay}</span>
+                        <span className='text-base bg-banana rounded-full max-w-[172px] whitespace-nowrap overflow-hidden text-ellipsis text-black px-3 font-semibold'>{journalNameDisplay}</span>
                     </button>
                     <div className={`max-h-52 h-full max-w-[200px] rounded-2xl p-4 mt-2 justify-start items-center bg-banana text-black absolute ${showOptions ? 'flex' : 'hidden'}`}>
                         <ul className='overflow-y-auto h-full'>

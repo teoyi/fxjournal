@@ -100,13 +100,13 @@ const Login = () => {
   }, [persist])
 
   return (
-    <div className="flex flex-row justify-start items-center h-screen bg-black  text-banana">
+    <div className="flex flex-row justify-start items-center h-screen bg-black10  text-banana">
       <div className={bgImg === 'two' ? two : bgImg === 'three' ? three : bgImg === 'four' ? four : one}></div>
       <div className="w-2/3 flex flex-col justify-center items-center h-full z-10">
         <h1 className="font-goshbe lg:text-auth-lg xl:text-auth-xl -mt-6r lg:leading-auth-lg xl:leading-auth-xl">fxjournal</h1>
         <p className="font-semibold text-xl">Your one stop shop to review your trades</p>
       </div>
-      <div className="flex flex-col h-full w-1/3 justify-center items-center rounded-l-3xl bg-black z-10">
+      <div className="flex flex-col h-full w-1/3 justify-center items-center rounded-l-3xl bg-black10 z-10">
         <p className={errMsg ? "block" : "hidden"}>{errMsg}</p>
         <h1 className='uppercase font-semibold text-3xl mb-5'>Sign In</h1>
         <form className="flex flex-col  w-[20vw]" onSubmit={handleSubmit}>

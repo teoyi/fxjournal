@@ -48,14 +48,14 @@ module.exports = {
       margin: {
         '17r': '17rem',
         '6r': '6rem',
-        '14r': '14rem',
+        '8r': '8rem',
         '100p': '100px',
       },
       zIndex: {
         'n1': '-1',
       },
       colors: {
-        'banana': '#FFD369',
+        'banana': '#F9D342',
         'backdrop': '#292826',
         'hr-line': '#515151',
         'black0C': '#0B0B0C',

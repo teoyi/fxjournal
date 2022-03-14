@@ -7,11 +7,11 @@ import useLogout from '../hooks/useLogout';
 
 const Navbar = () => {
     // Authentication 
-    const { auth } = useAuth(); 
+    const { auth } = useAuth();
     const logout = useLogout();
 
     // menu state 
-    const [isOpen, setOpen] = useState(false); 
+    const [isOpen, setOpen] = useState(false);
     const toOpen = "ease-in duration-300 absolute left-nav-slide bg-black h-screen w-2/5 flex justify-center items-center z-0 -mt-88";
     const toClose = "ease-out duration-300 absolute left-nav-slide bg-black h-screen w-2/5 flex justify-center items-center -translate-x-full z-0 -mt-88"
     const handleToggle = () => {
@@ -21,7 +21,7 @@ const Navbar = () => {
     // nav type state 
     const loc = useLocation();
     const [navType, setNavType] = useState('');
-    
+
     useEffect(() => {
         const authPath = ['/register', '/login'];
         if (authPath.includes(loc.pathname)) {
@@ -32,7 +32,7 @@ const Navbar = () => {
     }, [loc.pathname])
 
     // history handle 
-    const navigate = useNavigate(); 
+    const navigate = useNavigate();
     const handleBack = () => {
         navigate(-1);
     };
@@ -46,8 +46,8 @@ const Navbar = () => {
     };
 
     return (
-        <>  
-            { auth.username ? (
+        <>
+            {auth.username ? (
                 <div className="w-full flex flex-row justify-between items-center">
                     {/* <div className="nav-wrapper relative w-full py-5 flex flex-row justify-between items-center z-10">             
                         <div className="left-nav mx-10 flex flex-row text-xl items-center font-semibold">
@@ -77,7 +77,7 @@ const Navbar = () => {
                 </div>
             ) : navType === 'back' ? (
                 <div className="absolute w-full text-banana mt-100p">
-                    <div className="relative w-full flex flex-row justify-start items-center z-10">             
+                    <div className="relative w-full flex flex-row justify-start items-center z-10">
                         <button onClick={handleBack}>
                             <div className="flex flex-row justify-center items-center mx-10">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-9 w-9" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -109,7 +109,7 @@ const Navbar = () => {
                 //         </div>
                 //     </div>
                 // </div>
-                <div className="w-full text-banana flex flex-row justify-between items-center lg:max-w-screen-lg 2xl:max-w-screen-2xl">
+                <div className="w-full text-banana flex flex-row justify-between items-center absolute mt-[66px] lg:max-w-screen-lg 2xl:max-w-screen-2xl">
                     <div className="text-xl uppercase font-semibold">
                         <Link to="/">fxj.</Link>
                     </div>
@@ -118,9 +118,9 @@ const Navbar = () => {
                     </div>
                 </div>
             )}
-            
+
         </>
-        
+
     )
 }
 
