@@ -6,8 +6,8 @@ import About from './About';
 const Homepage = () => {
   return (
     <>
-        <Hero />
-        <About />
+        {/* <Hero />
+        <About /> */}
     </>
   );
 };
